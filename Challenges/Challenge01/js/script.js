@@ -14,11 +14,15 @@ to overlap another circle (food) in order to grow bigger.
 const PLAYER_SIZE_GAIN = 50;
 const PLAYER_SIZE_LOSS = 1;
 
+const MAX_SIZE = 64;
+
+const FOOD_SIZE = 64;
+
 // Player is an object defined by its properties
 let player = {
   x: 0,
   y: 0,
-  maxSize: 64,
+  maxSize: MAX_SIZE,
   size: 64,
   active: true,
   color: '#cccc55'
@@ -28,7 +32,7 @@ let player = {
 let food = {
   x: 0,
   y: 0,
-  size: 64,
+  size: FOOD_SIZE,
   color: '#55cccc'
 }
 
