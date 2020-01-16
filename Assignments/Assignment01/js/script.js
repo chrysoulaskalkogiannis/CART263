@@ -15,6 +15,10 @@ const PIXEL_REVERT_DELAY = 1000;
 const DEFAULT_COLOR = 'black';
 const PAINT_COLOR = 'white';
 
+let rotation = 0;
+
+let turnKey = "";
+
 // Set up our starting function for when the page loads
 window.onload = setup;
 
@@ -33,6 +37,8 @@ function setup() {
     pixel.addEventListener('mouseover', paint);
     // Add the element to the body of the page
     document.body.appendChild(pixel);
+
+    //document.addEventListener('keydown', rotatePixel, console.log("Hello world!"));
   }
 }
 
@@ -47,12 +53,15 @@ function paint(e) {
   // Change the background color of the element to white
   pixel.style.backgroundColor = 'rgb(' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ')';
   // random color code found here =      https://www.sitepoint.com/get-url-parameters-with-javascript/
+  //It helped me understand Math.random better
 
 
   // Set a timeout to call the reset function after a delay
   // When we pass additional parameters (like 'pixel' below) they
   // are passed to the callback function (resetPixel)
   setTimeout(resetPixel, PIXEL_REVERT_DELAY, pixel);
+
+///  pixel.addEventListener('37', rotatePixel, console.log("hai"));
 }
 
 // resetPixel
@@ -60,4 +69,17 @@ function paint(e) {
 // Takes the provided pixel element and sets its color back to default
 function resetPixel(pixel) {
   pixel.style.backgroundColor = DEFAULT_COLOR;
+}
+
+
+function rotatePixel(pixel){
+if (turnKey === "37"){
+  rotation -=1;
+  console.log("dsjghsiujg");
+
+}else if (turnKey === "39"){
+rotation += 1
+}
+
+
 }
