@@ -17,7 +17,7 @@ const PAINT_COLOR = 'white';
 
 let rotation = 0;
 
-let turnKey = "";
+
 
 // Set up our starting function for when the page loads
 window.onload = setup;
@@ -38,7 +38,8 @@ function setup() {
     // Add the element to the body of the page
     document.body.appendChild(pixel);
 
-    //document.addEventListener('keydown', rotatePixel, console.log("Hello world!"));
+
+    addEventListener('keydown', rotatePixel);
   }
 }
 
@@ -73,13 +74,10 @@ function resetPixel(pixel) {
 
 
 function rotatePixel(pixel){
-if (turnKey === "37"){
-  rotation -=1;
-  console.log("dsjghsiujg");
 
-}else if (turnKey === "39"){
-rotation += 1
-}
 
+//pixel.style.transform = "rotate(3deg)";
+
+console.log("Hello");
 
 }
