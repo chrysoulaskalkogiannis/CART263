@@ -73,11 +73,24 @@ function resetPixel(pixel) {
 }
 
 
-function rotatePixel(pixel){
+function rotatePixel(){
+
+  let pixels = document.getElementsByClassName("pixel");
 
 
-//pixel.style.transform = "rotate(3deg)";
+  //when right arrow is pressed it turns the pixels to the right
+  if (event.keyCode === 39) {
+      rotation = rotation + 1;
+    }
 
-console.log("Hello");
+    //when left arrow is pressed it turns the pixels to the left
+    else if (event.keyCode === 37) {
+    rotation = rotation - 1;
+  }
+  //a loop to rotate each pixel on the screen
+  for (let i = 0; i < pixels.length; i++) {
+    pixels[i].style.transform = `rotate(${rotation}deg)`;
 
+
+}
 }
