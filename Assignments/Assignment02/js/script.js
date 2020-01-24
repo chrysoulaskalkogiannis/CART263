@@ -17,13 +17,14 @@ const REVEAL_POSSIBILITY = 0.1;
 const UPDATE_FREQUENCY = 500;
 
 
-let secretsFound;
+let secretsFound = 0;
 
 let secretsTotal;
 
 // A place to store the jQuery selection of all spans
 let $spans;
 
+let $secrets;
 // When the document is loaded we call the setup function
 $(document).ready(setup);
 
@@ -39,8 +40,15 @@ function setup() {
   setInterval(update, UPDATE_FREQUENCY);
 
  secretsTotal = $(".secret").length;
+ console.log(secretsTotal);
 
- 
+
+
+$secrets = $('.secret');
+$secrets.on('mouseover', secretsFound);
+$secrets.off('mouseover', storeFoundSecret);
+console.log(secretsFound);
+
 
 };
 
@@ -51,6 +59,21 @@ function setup() {
 function spanClicked() {
   $(this).removeClass('revealed');
   $(this).addClass('redacted');
+}
+
+function secretFound() {
+
+  $(this).removeClass('secret');
+  $(this).addClass('found');
+  secretFound = secretsFound += 1;
+}
+
+function storeFoundSecret(){
+
+
+
+
+
 }
 
 // update()
