@@ -26,6 +26,12 @@ body {
   color: red; /* Emergency! */
 }
 
+.secret {
+color: black;
+
+}
+
+
 .found {
 background-color: yellow;
 
