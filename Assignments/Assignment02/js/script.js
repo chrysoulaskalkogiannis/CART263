@@ -45,8 +45,8 @@ function setup() {
 
 
 $secrets = $('.secret');
-$secrets.on('mouseover', secretsFound);
-$secrets.off('mouseover', storeFoundSecret);
+$secrets.on('mouseover', secretFound);
+//$secrets.off('mouseover', storeFoundSecret);
 console.log(secretsFound);
 
 
@@ -63,18 +63,10 @@ function spanClicked() {
 
 function secretFound() {
 
-  $(this).removeClass('secret');
   $(this).addClass('found');
-  secretFound = secretsFound += 1;
+  //secretsFound = secretsFound + 1;
 }
 
-function storeFoundSecret(){
-
-
-
-
-
-}
 
 // update()
 //
