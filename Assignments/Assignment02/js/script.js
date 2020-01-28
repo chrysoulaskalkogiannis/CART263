@@ -48,6 +48,7 @@ $secrets = $('.secret');
 $secrets.on('mouseover', secretFound);
 //$secrets.off('mouseover', storeFoundSecret);
 
+$('#scoreDisplay').text(secretsFound + " OF " + secretsTotal + " SECRETS FOUND");
 
 };
 
@@ -66,6 +67,7 @@ function secretFound() {
   $(this).off('mouseover');
   secretsFound += 1;
   console.log(secretsFound);
+  $('#scoreDisplay').text(secretsFound + " OF " + secretsTotal + " SECRETS FOUND");
 }
 
 
