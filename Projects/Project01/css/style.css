@@ -1,3 +1,13 @@
+h1{
+
+margin-left: 215px;
+margin-right: 215px;
+
+
+}
+
+
+
 .square {
   background-color: red;
   width: 200px;
@@ -10,7 +20,7 @@
   background-color: black;
   width: 400px;
   height: 400px;
-  
+
 
 
 }
