@@ -1,0 +1,16 @@
+.square {
+  background-color: red;
+  width: 200px;
+  height: 200px;
+  float: left;
+  margin: 20px;
+}
+
+.base{
+  background-color: black;
+  width: 400px;
+  height: 400px;
+  
+
+
+}
