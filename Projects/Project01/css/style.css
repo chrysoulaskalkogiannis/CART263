@@ -3,7 +3,6 @@ h1{
 margin-left: 215px;
 margin-right: 215px;
 
-
 }
 
 
@@ -18,9 +17,8 @@ margin-right: 215px;
 
 .base{
   background-color: black;
-  width: 400px;
-  height: 400px;
-
-
-
+  width: 600px;
+  height: 275px;
+  margin-left: 300px;
+  margin-top: 400px;
 }
