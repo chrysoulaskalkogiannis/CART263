@@ -2,6 +2,8 @@ h1{
 
 margin-left: 215px;
 margin-right: 215px;
+margin-bottom: 50px;
+
 
 }
 
@@ -13,12 +15,24 @@ margin-right: 215px;
   height: 200px;
   float: left;
   margin: 20px;
+  text-align: center;
 }
 
 .base{
   background-color: black;
-  width: 600px;
+  width: 400px;
   height: 275px;
-  margin-left: 300px;
+  margin-left: 400px;
   margin-top: 400px;
+  text-align: center;
+}
+
+.inspiration{
+
+  margin-left: 450px;
+  margin-top: 50px;
+  font-weight: bold;
+  font-size: 50px;
+  
+
 }
