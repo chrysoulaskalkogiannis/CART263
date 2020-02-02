@@ -4,6 +4,8 @@
 let $base;
 let $square;
 
+let totalSquares;
+
 $(document).ready(setup);
 
 function setup() {
@@ -22,13 +24,21 @@ function setup() {
     revert: true
   });
 
+
+  totalSquares = $(".square").length;
+
 }
 
 function onDrop(event, ui) {
 
 ui.draggable.remove();
 
-//  ({revert:false});
+totalSquares -= 1;
+
+console.log(totalSquares);
 
 
+if (totalSquares == 0){
+      location.reload(true);
+}
 }
