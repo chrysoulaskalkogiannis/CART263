@@ -32,6 +32,7 @@ function setup() {
   totalSquares = $(".square").length;
 
 
+  // code to help me with random array found here - https://stackoverflow.com/questions/9960909/random-text-from-jquery-array
   random = Math.floor ( Math.random() * message.length );
   $('#messageDisplay').text(message[random])
 
