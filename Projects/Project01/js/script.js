@@ -8,7 +8,7 @@ let $square;
 //count how many squares are in the area
 let totalSquares;
 //an array of messages every time the page loads
-let message = ['You can do it!', 'Almost there', 'Keep going', 'Just a little more', 'JUST DO IT!', 'Remind you of someone?'];
+let message = ['You can do it!', 'Almost there', 'Keep going', 'Just a little more', 'JUST DO IT!', 'Remind you of someone?', 'Fred wants more memes', 'He seems to like the same memes', 'Memes will always make us happy'];
 // a random variable for randomizing our messages
 let random;
 
@@ -48,6 +48,7 @@ function setup() {
   // code to help me with random array found here - https://stackoverflow.com/questions/9960909/random-text-from-jquery-array
   random = Math.floor(Math.random() * message.length);
   $('#messageDisplay').text(message[random])
+
 }
 
 
