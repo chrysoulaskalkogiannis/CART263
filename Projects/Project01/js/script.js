@@ -12,10 +12,18 @@ let message = ['You can do it!', 'Almost there', 'Keep going', 'Just a little mo
 // a random variable for randomizing our messages
 let random;
 
+// sound for page start
+let startSFX = new Audio("assets/sounds/start.wav");
 
+//sound for dropping square on base
+let dropSound = new Audio("assets/sounds/drop.wav");
 
 $(document).ready(setup);
 function setup() {
+
+
+  //play a starting sound when page reloads
+  startSFX.play();
 
   //let's have our base variable be the base class from our css
   $base = $(".base");
@@ -48,6 +56,9 @@ function onDrop(event, ui) {
 
   //it removes the draggable from the page
   ui.draggable.remove();
+
+  //play sound on drop
+  dropSound.play();
 
   //On draggable being removed means that there is one less square and the total in the page is minused by 1
   totalSquares -= 1;
