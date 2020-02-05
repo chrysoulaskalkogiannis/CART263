@@ -33,15 +33,15 @@ function setup() {
     drop: onDrop
   });
 
-  //let's have our meme variable be the square class from our css
+  //let's have our memes variable be the memes class from our css
   $memes = $('.memes');
 
-  //We are making it draggable and if it does not drop on the base it goes back in it's original place
+  //We are making it draggable and if it does not drop on Fred it goes back in it's original place
   $memes.draggable({
     revert: true
   });
 
-  //Let's have our totalSquares equal to the amount of memes in the page
+  //Let's have our totalmemes equal to the amount of memes in the page
   totalMemes = $(".memes").length;
 
   //Let's have an array of messages display a message every time the page loads
@@ -52,7 +52,7 @@ function setup() {
 }
 
 
-//Our function for when a square drops on the base
+//Our function for when a meme drops on Fred
 function onDrop(event, ui) {
 
   //it removes the draggable from the page
@@ -61,13 +61,13 @@ function onDrop(event, ui) {
   //play sound on drop
   dropSound.play();
 
-  //On draggable being removed means that there is one less square and the total in the page is minused by 1
+  //On draggable being removed means that there is one less meme and the total in the page is minused by 1
   totalMemes -= 1;
 
   //output the amount on the console to see that it is working
   console.log(totalMemes);
 
-  // if there are no more squares the page reloads and brings everything back
+  // if there are no more memes the page reloads and brings everything back
   //A new message array also shows
   if (totalMemes == 0) {
     location.reload(true);
