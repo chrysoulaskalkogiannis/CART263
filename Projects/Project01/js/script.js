@@ -3,19 +3,19 @@
 
 
 // create our main objects
-let $base;
-let $square;
+let $memeGuy;
+let $memes;
 //count how many squares are in the area
 let totalSquares;
 //an array of messages every time the page loads
-let message = ['You can do it!', 'Almost there', 'Keep going', 'Just a little more', 'JUST DO IT!', 'Remind you of someone?', 'Fred wants more memes', 'He seems to like the same memes', 'Memes will always make us happy'];
+let message = ['You can do it!', 'Almost there', 'Keep going',"It's just the same memes", 'Just a little more', 'JUST DO IT!', 'Remind you of someone?', 'Fred wants more memes', 'He seems to like the same memes', 'Memes will always make us happy'];
 // a random variable for randomizing our messages
 let random;
 
 // sound for page start
 let startSFX = new Audio("assets/sounds/start.wav");
 
-//sound for dropping square on base
+//sound for dropping a meme on fred
 let dropSound = new Audio("assets/sounds/drop.wav");
 
 $(document).ready(setup);
@@ -25,24 +25,24 @@ function setup() {
   //play a starting sound when page reloads
   startSFX.play();
 
-  //let's have our base variable be the base class from our css
-  $base = $(".base");
+  //let's have our base variable be the fred class from our css
+  $memeGuy = $(".fred");
   //Make it droppable
-  $base.droppable({
+  $memeGuy.droppable({
     //When something is dropped in it, the onDrop function is activated
     drop: onDrop
   });
 
   //let's have our square variable be the square class from our css
-  $square = $('.square');
+  $memes = $('.memes');
 
   //We are making it draggable and if it does not drop on the base it goes back in it's original place
-  $square.draggable({
+  $memes.draggable({
     revert: true
   });
 
   //Let's have our totalSquares equal to the amount of squares in the page
-  totalSquares = $(".square").length;
+  totalSquares = $(".memes").length;
 
   //Let's have an array of messages display a message every time the page loads
   // code to help me with random array found here - https://stackoverflow.com/questions/9960909/random-text-from-jquery-array

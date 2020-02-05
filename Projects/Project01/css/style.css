@@ -8,7 +8,7 @@ margin-bottom: 50px;
 
 
 
-.square {
+.memes {
   background-color: transparent;
   width: 200px;
   height: 200px;
@@ -17,7 +17,7 @@ margin-bottom: 50px;
   text-align: center;
 }
 
-.base{
+.fred{
   position: fixed;
   top: 300px;
   left: 35px;
