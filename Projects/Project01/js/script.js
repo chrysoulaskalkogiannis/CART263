@@ -6,7 +6,7 @@
 let $memeGuy;
 let $memes;
 //count how many squares are in the area
-let totalSquares;
+let totalMemes;
 //an array of messages every time the page loads
 let message = ['You can do it!', 'Almost there', 'Keep going',"It's just the same memes", 'Just a little more', 'JUST DO IT!', 'Remind you of someone?', 'Fred wants more memes', 'He seems to like the same memes', 'Memes will always make us happy'];
 // a random variable for randomizing our messages
@@ -33,7 +33,7 @@ function setup() {
     drop: onDrop
   });
 
-  //let's have our square variable be the square class from our css
+  //let's have our meme variable be the square class from our css
   $memes = $('.memes');
 
   //We are making it draggable and if it does not drop on the base it goes back in it's original place
@@ -41,8 +41,8 @@ function setup() {
     revert: true
   });
 
-  //Let's have our totalSquares equal to the amount of squares in the page
-  totalSquares = $(".memes").length;
+  //Let's have our totalSquares equal to the amount of memes in the page
+  totalMemes = $(".memes").length;
 
   //Let's have an array of messages display a message every time the page loads
   // code to help me with random array found here - https://stackoverflow.com/questions/9960909/random-text-from-jquery-array
@@ -62,14 +62,14 @@ function onDrop(event, ui) {
   dropSound.play();
 
   //On draggable being removed means that there is one less square and the total in the page is minused by 1
-  totalSquares -= 1;
+  totalMemes -= 1;
 
   //output the amount on the console to see that it is working
-  console.log(totalSquares);
+  console.log(totalMemes);
 
   // if there are no more squares the page reloads and brings everything back
   //A new message array also shows
-  if (totalSquares == 0) {
+  if (totalMemes == 0) {
     location.reload(true);
 
 
