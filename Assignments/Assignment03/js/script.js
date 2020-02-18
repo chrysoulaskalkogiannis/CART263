@@ -169,13 +169,12 @@ annyang.start();
 
 
 
-var commands = {
-  'I give up': function(){ newRound(),
-    handleGuess();}
+var commands2 = {
+  'I give up': function(){newRound();}
 };
 
 //add our command sto annyang
-annyang.addCommands(commands);
+annyang.addCommands(commands2);
 
 //start listening
 annyang.start();
@@ -209,7 +208,7 @@ $div.on('click', handleGuess);
 function newRound(){
 
 
-
+$(".guess").remove();
 answers = [];
 
 
@@ -230,9 +229,10 @@ function handleGuess(){
 
 if ($(this).text()=== correctAnimal){
 
-$(".guess").remove();
-
 setTimeout(newRound,500);
+}else{
+$('.guess').effect('shake');
+
 }
 
 
