@@ -158,7 +158,7 @@ let animals =  [
 if(annyang) {
 
 var commands = {
-  'hello': function(){ alert('Hello world');}
+  'say it again': function(){ sayBackwards(correctAnimal);}
 };
 
 //add our command sto annyang
@@ -168,6 +168,17 @@ annyang.addCommands(commands);
 annyang.start();
 
 
+
+var commands = {
+  'I give up': function(){ newRound(),
+    handleGuess();}
+};
+
+//add our command sto annyang
+annyang.addCommands(commands);
+
+//start listening
+annyang.start();
 
 
 }
@@ -239,12 +250,6 @@ rate:Math.random(0,1)
 };
 
 responsiveVoice.speak(backwardsText,"Greek Female", options);
-
-
-}
-
-
-function giveUp(){
 
 
 }
