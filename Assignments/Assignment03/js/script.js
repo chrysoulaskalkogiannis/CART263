@@ -150,10 +150,28 @@ let animals =  [
 
   let correctAnimal;
   let guess;
-
   let answers = [];
-
   const NUM_OPTIONS = 4;
+
+
+// define the annyang command
+if(annyang) {
+
+var commands = {
+  'hello': function(){ alert('Hello world');}
+};
+
+//add our command sto annyang
+annyang.addCommands(commands);
+
+//start listening
+annyang.start();
+
+
+
+
+}
+
 
 
 $(document).ready(setup);
@@ -221,6 +239,12 @@ rate:Math.random(0,1)
 };
 
 responsiveVoice.speak(backwardsText,"Greek Female", options);
+
+
+}
+
+
+function giveUp(){
 
 
 }
