@@ -10,6 +10,8 @@ to match your project! Write JavaScript to do amazing things below!
 
 *********************************************************************/
 
+let score = 0;
+
 
 let animals =  [
       "aardvark",
@@ -170,7 +172,7 @@ annyang.start();
 
 
 var commands2 = {
-  'I give up': function(){newRound();}
+  'I give up': function(){giveUp();}
 };
 
 //add our command sto annyang
@@ -250,6 +252,16 @@ rate:Math.random(0,1)
 };
 
 responsiveVoice.speak(backwardsText,"Greek Female", options);
+
+
+}
+
+function giveUp(){
+
+//$(correctAnimal).toggle('.answer');
+//setTimeout(2000);
+newRound()
+
 
 
 }
