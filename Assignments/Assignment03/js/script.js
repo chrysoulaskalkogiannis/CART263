@@ -261,6 +261,11 @@ responsiveVoice.speak(backwardsText,"UK English Female", options);
 
 }
 
+function giveUp(){
+
+newRound()
+}
+
 
 function scoreTrack() {
   $('#playerScore').text(score);
