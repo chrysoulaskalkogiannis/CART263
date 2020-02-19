@@ -9,10 +9,10 @@ This is a template. Fill in the title, author, and this description
 to match your project! Write JavaScript to do amazing things below!
 
 *********************************************************************/
-
+//set our score to 0
 let score = 0;
 
-
+// our animals array
 let animals = [
   "aardvark",
   "alligator",
@@ -150,9 +150,16 @@ let animals = [
   "zebra"
 ];
 
+//store our correct animal
 let correctAnimal;
+
+//store our guess
 let guess;
+
+//store the answers to choose from
 let answers = [];
+
+//ammount of answers on display
 const NUM_OPTIONS = 4;
 
 
@@ -182,7 +189,7 @@ if (annyang) {
   annyang.start();
 
 
-
+// is user says 'I think it is *sayGuess' the right answer will start a new round and give a point
   var commands3 = {
     'I think it is *sayGuess': function(sayGuess) {
       if (sayGuess === correctAnimal) {
@@ -190,7 +197,6 @@ if (annyang) {
         setTimeout(newRound, 100);
         score++;
         scoreTrack();
-
       }
     }
 
@@ -206,14 +212,17 @@ if (annyang) {
 $(document).ready(setup);
 
 function setup() {
+
+  // start a new round
   newRound();
+
+  // keep track of the score
   scoreTrack();
 
 }
 
-
+//show our buttons of animals to choose from
 function addButton(label) {
-
 
   let $div = $('<div></div>');
   $div.addClass('guess');
@@ -225,29 +234,31 @@ function addButton(label) {
 
 }
 
+// start a new round
 function newRound() {
 
-
+//removed the curent buttons on screen
   $(".guess").remove();
   answers = [];
 
+//adds 4 random new buttons to choose from
   for (let i = 0; i < NUM_OPTIONS; i++) {
     let ans = animals[Math.floor(Math.random() * animals.length)];
     addButton(ans);
     answers.push(ans);
 
   }
-
+// chooses a correct animal and calls for the name to be said backwards
   correctAnimal = answers[Math.floor(Math.random() * answers.length)];
   sayBackwards(correctAnimal);
 
 }
 
-
-
-
+// actions for when player clicks on a button
 function handleGuess() {
 
+// correct animal clicked on will give a point and start a new round
+// wrong answer will put score to 0 and shake buttons
   if ($(this).text() === correctAnimal) {
 
     score++;
@@ -257,11 +268,11 @@ function handleGuess() {
     $('.guess').effect('shake');
     score = 0;
     scoreTrack();
-
   }
 
 }
 
+//says the correct answer backwards
 function sayBackwards(text) {
 
   let backwardsText = text.split('').reverse().join('');
@@ -270,19 +281,20 @@ function sayBackwards(text) {
     rate: Math.random(0, 1)
   };
 
+//have an english female say the correct answer backwards
   responsiveVoice.speak(backwardsText, "UK English Female", options);
 
 
 }
 
+// frunctions for when player says 'I give up'
 function giveUp() {
-
   score = 0;
   scoreTrack();
   newRound()
 }
 
-
+// keeps track of the score when a change happens
 function scoreTrack() {
   $('#playerScore').text(score);
 }
