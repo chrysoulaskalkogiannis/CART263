@@ -190,6 +190,7 @@ $(document).ready(setup);
 
 function setup() {
 newRound();
+scoreTrack();
 
 }
 
@@ -231,9 +232,13 @@ function handleGuess(){
 
 if ($(this).text()=== correctAnimal){
 
+score++;
+scoreTrack();
 setTimeout(newRound,500);
 }else{
 $('.guess').effect('shake');
+score = 0;
+scoreTrack();
 
 }
 
@@ -251,17 +256,12 @@ pitch:Math.random(0,1),
 rate:Math.random(0,1)
 };
 
-responsiveVoice.speak(backwardsText,"Greek Female", options);
+responsiveVoice.speak(backwardsText,"UK English Female", options);
 
 
 }
 
-function giveUp(){
 
-//$(correctAnimal).toggle('.answer');
-//setTimeout(2000);
-newRound()
-
-
-
+function scoreTrack() {
+  $('#playerScore').text(score);
 }
