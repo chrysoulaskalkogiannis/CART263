@@ -18,5 +18,7 @@ $(document).ready(setup);
 
 function setup() {
   console.log(playerName);
-responsiveVoice.speak("Hello"+ playerName + ",I want to play a game");
+responsiveVoice.speak("Hello "+ playerName + ". I want to play a game", "UK English Male",
+{pitch: 0.1,
+rate: 1});
 }
