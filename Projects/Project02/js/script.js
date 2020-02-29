@@ -9,6 +9,11 @@ This is a template. Fill in the title, author, and this description
 to match your project! Write JavaScript to do amazing things below!
 
 *********************************************************************/
+let profitScore = 0;
+let traumaScore = 0;
+let happinessScore = 0;
+
+
 let playerName = prompt ("Please enter your name");
 
 let voice = 'UK English Male';
@@ -22,6 +27,9 @@ let voiceParameters = {
 $(document).ready(setup);
 
 function setup() {
+$('.messageDisplay').text(profitScore);
+$('.messageDisplay').text(traumaScore);
+$('.messageDisplay').text(happinessScore);
 
   console.log(playerName);
 
