@@ -1,4 +1,9 @@
- #gameStart{
+  .scores{
 
-
+    background-color: transparent;
+     width: 200px;
+     height: 200px;
+     float: left;
+     margin: 20px;
+     text-align: center;
 }
