@@ -21,13 +21,13 @@ let happinessScore = 0;
 
 
 
-let profitContent = ["Dieing Peppa Pig", "Abuse", "Suicide Forest"];
+let profitContent = ["Killing Peppa Pig", "Abuse", "Suicide Forest"];
 let happinessContent = ["Kittens", "Peppa Pig", ];
 
 let buttons = [];
 
 const PROFIT_OPTIONS = 1;
-const HAPPINESS_OPTIONS = 2;
+const HAPPINESS_OPTIONS = 1;
 
 let playerName =  "frank";     //prompt ("Please enter your name");
 
@@ -121,6 +121,14 @@ let $button = buttonShow(answer);
    buttons.push($button);
 }
 
+for (let i = 0; i < HAPPINESS_OPTIONS; i++) {
+
+let answer = getRandomElement(happinessContent);
+let $button = buttonShow(answer);
+   // Add this button to the buttons array
+   buttons.push($button);
+}
+
 
 }
 
@@ -152,16 +160,27 @@ function buttonShow(label){
 
 function handleButtonChoice(){
 
+  if ($(this).text() === profitContent.text()) {
+    // Remove all the buttons
+    $('.guess').remove();
+    // Start a new round
+    choices(newRound, 1000);
+  }
+  else  if ($(this).text() === happinessContent.text()) {
+    // Remove all the buttons
+    $('.guess').remove();
+    // Start a new round
+    choices(newRound, 1000);
+  }
+
 
 }
 
 
-function getRandomElement(){
+
 
   function getRandomElement(array) {
     let element = array[Math.floor(Math.random() * array.length)];
     return element;
-
-}
 
 }
