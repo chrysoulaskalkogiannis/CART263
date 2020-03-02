@@ -15,7 +15,7 @@ let gameState = false;
 
 
 let profitScore = 0;
-let traumaScore = 0;
+
 let happinessScore = 0;
 
 
@@ -25,7 +25,7 @@ let happinessScore = 0;
 
 let profitButton;
 let happinessButton;
-let traumaButton;
+
 
 
 let playerName =  "frank";     //prompt ("Please enter your name");
@@ -46,7 +46,7 @@ let voiceParameters = {
 
 var commands = {
     "Let's start": function() {
-    myFunction()  ;
+    choices()  ;
     }
   };
   annyang.addCommands(commands);
@@ -66,7 +66,6 @@ $('#mainScreen').hide();
 
 
 $('.messageDisplay').text(profitScore);
-$('.messageDisplay').text(traumaScore);
 $('.messageDisplay').text(happinessScore);
 
 $("#start").on("click", function(){
@@ -85,8 +84,10 @@ function begin(){
 
 }
 
-function myFunction(){
+function choices(){
 
-console.log("working");
+responsiveVoice.speak("Good. Now, which piece of content will give us more profit?", voice, voiceParameters)
+
+
 
 }
