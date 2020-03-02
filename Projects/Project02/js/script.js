@@ -9,12 +9,26 @@ This is a template. Fill in the title, author, and this description
 to match your project! Write JavaScript to do amazing things below!
 
 *********************************************************************/
+
+let gameState = false;
+
+
+
 let profitScore = 0;
 let traumaScore = 0;
 let happinessScore = 0;
 
 
-let playerName = prompt ("Please enter your name");
+
+
+
+
+let profitButton;
+let happinessButton;
+let traumaButton;
+
+
+let playerName =  "frank";     //prompt ("Please enter your name");
 
 let voice = 'UK English Male';
 
@@ -24,16 +38,55 @@ let voiceParameters = {
 }
 
 
+
+
+
+
+
+
+var commands = {
+    "Let's start": function() {
+    myFunction()  ;
+    }
+  };
+  annyang.addCommands(commands);
+  //start listening
+  annyang.start();
+
+
+
+
+
+
 $(document).ready(setup);
 
 function setup() {
+
+$('#mainScreen').hide();
+
+
 $('.messageDisplay').text(profitScore);
 $('.messageDisplay').text(traumaScore);
 $('.messageDisplay').text(happinessScore);
 
-  console.log(playerName);
+$("#start").on("click", function(){
+$(this).hide(begin());
+$('#mainScreen').show();
 
-responsiveVoice.speak("Hello "+ playerName + ". I want to play a game. I want to make money, but I need your help.  I need you to approve of the content that will make the most profit for us.  Think you can manage better than the last person who tried to help me?  Alright then, let's begin",voice, voiceParameters)
+});
 
 
 };
+
+function begin(){
+
+
+  responsiveVoice.speak("Hello "+ playerName + ". I want to play a game. I want to make money, but I need your help.  I need you to approve of the content that will make the most profit for us.  Think you can manage better than the last person who tried to help me?  Alright then. Tell me when you're ready by saying. Let's start",voice, voiceParameters)
+
+}
+
+function myFunction(){
+
+console.log("working");
+
+}
