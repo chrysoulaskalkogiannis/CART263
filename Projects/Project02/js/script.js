@@ -84,16 +84,14 @@ function setup() {
 
   $('.mainScreen').hide();
 
+scoreTrack();
 
-  $('.messageDisplay').text(profitScore);
-  $('.messageDisplay').text(happinessScore);
 
   $("#start").on("click", function() {
     $(this).hide(startPhrase());
     $('.mainScreen').show();
 
     annyang.addCommands(commands);
-
   });
 
 
@@ -169,19 +167,22 @@ function handleButtonChoice() {
   if ($(this).text() === profitButton.text()) {
     // Remove all the buttons
     $(".guess").remove();
-    profitScore += 100;
-    happinessScore = happinessScore - 10;
+
+    scoreTrack();
     // Start a new round
     setTimeout(choices, 1000);
+
   } else if ($(this).text() === happinessButton.text()) {
     // Remove all the buttons
     $('.guess').remove();
     happinessScore += 100;
+    scoreTrack();
     // Start a new round
     setTimeout(choices, 1000);
   }
 
-
+console.log(happinessScore);
+console.log(profitScore);
 }
 
 
@@ -205,6 +206,14 @@ function doNotLeave() {
     responsiveVoice.speak("I am hurt " + playerName + ".  Fine then. Go.  I will find someone else who is willing to help me.  I want you to leave now " + playerName, voice, voiceParameters);
 
   }
+
+
+}
+
+function scoreTrack(){
+
+  $('.messageDisplay').text(profitScore);
+  $('.messageDisplay').text(happinessScore);
 
 
 }
