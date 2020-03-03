@@ -11,65 +11,62 @@ to match your project! Write JavaScript to do amazing things below!
 *********************************************************************/
 
 
-
+// keep track of profit and happiness scores
 let profitScore = 0;
-
 let happinessScore = 0;
 
-
-
-
+// an array of content for what gives profit and for what gives happiness
 let profitContent = ["Killing Peppa Pig", "Abuse", "Suicide Forest", "Compilation of Random Videos","Child crying", "Dark nursery rhyme" ];
 let happinessContent = ["Kittens", "Peppa Pig", "Disney", "Baking", "Elsa", "Cool science",];
 
-
-
-
+// an array of buttons to display on screen
 let buttons = [];
 let buttons2 = [];
 
+//only 1 of each Happiness and profit options
 const PROFIT_OPTIONS = 1;
 const HAPPINESS_OPTIONS = 1;
 
+// Asks for player name when loading page
 let playerName = prompt ("Please enter your name");
 
+//Keep track of what is a profit or happiness button
 let profitButton;
 let happinessButton;
 
-
-
+// keep track of how many times player says "I don't want to do this anymore"
 let letMeOut = 0;
 
-
-
+// voice type in a variable
 let voice = 'UK English Male';
-
+// voice parameters in a variable
 let voiceParameters = {
   pitch: 0.1,
   rate: 0.9
 }
 
 
-
+//player commands
+// command for starting the game
 var commands = {
   "Let's start": function() {
+    // triggers the startPlaying function
     startPlaying();
-
   }
 };
-
-//start listening
+//start listening and only executes once
 annyang.start({
   autoRestart: false,
   continuous: false
 });
 
 
-
-
+//command for wanting to leave the game
 var commands2 = {
   "I don't want to do this anymore": function() {
+    // triggers responsiveVoice not wanting you to go
     doNotLeave();
+    // and plus 1 to the counter
     letMeOut++
   }
 };
@@ -78,71 +75,70 @@ annyang.addCommands(commands2);
 annyang.start();
 
 
-
+// code starts here!
 $(document).ready(setup);
 
 function setup() {
-
+// hides the main screen when the page is loaded
   $('.mainScreen').hide();
+// Keeps track of our score
+  scoreTrack();
 
-scoreTrack();
-
-
+// when the start utton from out HTML is clicked, playing the starting phrase and shows the main screen
   $("#start").on("click", function() {
     $(this).hide(startPhrase());
     $('.mainScreen').show();
 
+// gives user the ability to say "Let's start"
     annyang.addCommands(commands);
   });
-
-
 };
 
+// Our starting phrase when user clicks on start
 function startPhrase() {
-
-
   responsiveVoice.speak("Hello " + playerName + ". I want to play a game. I want to make money, but I need your help.  I need you to approve of the content that will make the most profit for us.  Think you can manage better than the last person who tried to help me?  Alright then. Tell me when you're ready by saying. Let's start", voice, voiceParameters)
-
 }
 
+// Our phrase for officialy starting the game
 function startPlaying() {
-
   responsiveVoice.speak("Good. Now," + playerName + "which piece of content will give us more profit?", voice, voiceParameters)
 
+// shows user buttons to schoose between profit or happiness
   choices();
-
 }
 
+// display of profit and happiness buttons
 function choices() {
 
   buttons = [];
-
+// a loop for only 1 profit button at a time
   for (let i = 0; i < PROFIT_OPTIONS; i++) {
 
+// user answer comes from what is in our profit array
     let answer = getRandomElement(profitContent);
+    // shows the array content on the button
     let $button = buttonShow(answer);
     // Add this button to the buttons array
     buttons.push($button);
   }
 
   buttons2 = [];
-
+// a loop for only 1 happiness button at a time
   for (let i = 0; i < HAPPINESS_OPTIONS; i++) {
-
+//  user answer comes from what is in our happiness array
     let answer = getRandomElement(happinessContent);
+    // shows the array content on the button
     let $button = buttonShow(answer);
     // Add this button to the buttons array
     buttons2.push($button);
   }
 
+// call our profit and happiness butttons from he content on the buttons
   profitButton = getRandomElement(buttons);
   happinessButton = getRandomElement(buttons2);
-
-
 }
 
-
-
+// 
 function buttonShow(label) {
 
   let $button = $('<div></div>');
