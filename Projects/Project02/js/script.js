@@ -19,8 +19,8 @@ let happinessScore = 0;
 
 
 
-let profitContent = ["Killing Peppa Pig", "Abuse", "Suicide Forest", "Compilation of Random Videos" ];
-let happinessContent = ["Kittens", "Peppa Pig", "Disney", "Baking", "Elsa"];
+let profitContent = ["Killing Peppa Pig", "Abuse", "Suicide Forest", "Compilation of Random Videos","Child crying", "Dark nursery rhyme" ];
+let happinessContent = ["Kittens", "Peppa Pig", "Disney", "Baking", "Elsa", "Cool science",];
 
 
 
@@ -31,7 +31,7 @@ let buttons2 = [];
 const PROFIT_OPTIONS = 1;
 const HAPPINESS_OPTIONS = 1;
 
-let playerName = "frank"; //prompt ("Please enter your name");
+let playerName = prompt ("Please enter your name");
 
 let profitButton;
 let happinessButton;
@@ -171,6 +171,7 @@ function handleButtonChoice() {
     // Remove all the buttons
     $(".guess").remove();
 profitScore += 100;
+happinessScore -= 50;
     scoreTrack();
     // Start a new round
     setTimeout(choices, 1000);
@@ -178,15 +179,13 @@ profitScore += 100;
   } else if ($(this).text() === happinessButton.text()) {
     // Remove all the buttons
     $('.guess').remove();
-    happinessScore = happinessScore + 100;
+    happinessScore += 100;
+    profitScore -= 50;
     scoreTrack();
     // Start a new round
     setTimeout(choices, 1000);
-    console.log("fire");
-  }
 
-console.log(happinessScore);
-console.log(profitScore);
+  }
 }
 
 
