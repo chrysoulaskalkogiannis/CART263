@@ -16,8 +16,8 @@ let profitScore = 0;
 let happinessScore = 0;
 
 // an array of content for what gives profit and for what gives happiness
-let profitContent = ["Killing Peppa Pig", "Abuse", "Suicide Forest", "Compilation of Random Videos","Child crying", "Dark nursery rhyme" ];
-let happinessContent = ["Kittens", "Peppa Pig", "Disney", "Baking", "Elsa", "Cool science",];
+let profitContent = ["Killing Peppa Pig", "Abuse", "Suicide Forest", "Compilation of Random Videos","Child crying", "Dark nursery rhyme", "Eerie faces", "Knives", "Flying Heads", "A character tied up", "Pony with no eyes", "Over detailed 3D model", "Taserin Mulan", "Shaved ponies", "Rat soup", "Vomit", "Blood", "Bruised princesses", "Defecation", "Scary clowns", "Scary dentists", "Poison","Pregnant"];
+let happinessContent = ["Kittens", "Peppa Pig", "Disney", "Baking", "Elsa", "Cool science", "Songs", "Thomas the Tank Engine", "My Little Pony", "Barbie", "Alphabet song", "Puppies", "Ice cream", "Nature", "Spongebob", "Fairly odd Parents", "Rainbows", "Nap songs", "Toys", "Dolls", "Chandy", "Mickey Mouse", "Minions", "Spider Man", "Goofy", "Tom and Jerry", "Stars", "Lion King", "Minecraft", "Kermit the Frog"];
 
 // an array of buttons to display on screen
 let buttons = [];
@@ -175,7 +175,7 @@ happinessScore -= 50;
     // Remove all the buttons
     $('.guess').remove();
     // hapiness up, profit down
-    happinessScore += 100;
+    happinessScore += 50;
     profitScore -= 50;
 // update the score
     scoreTrack();
@@ -204,6 +204,16 @@ function doNotLeave() {
   } else if (letMeOut === 2) {
     responsiveVoice.speak("I am hurt " + playerName + ".  Fine then. Go.  I will find someone else who is willing to help me.  I want you to leave now " + playerName, voice, voiceParameters);
   }
+}
+
+
+function progressPhrase(){
+
+
+
+
+
+
 }
 
 // keeps track of score and displays it on page
