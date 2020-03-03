@@ -138,7 +138,7 @@ function choices() {
   happinessButton = getRandomElement(buttons2);
 }
 
-// 
+// show our buttons and handle what happens when clicked
 function buttonShow(label) {
 
   let $button = $('<div></div>');
@@ -154,20 +154,19 @@ function buttonShow(label) {
   $('body').append($button);
   // Return the button
   return $button;
-
 }
 
-
-
-
-
+// handles what happens when user chooses a button
 function handleButtonChoice() {
+
 
   if ($(this).text() === profitButton.text()) {
     // Remove all the buttons
     $(".guess").remove();
+    // profit up, happiness down
 profitScore += 100;
 happinessScore -= 50;
+// updates the score on page
     scoreTrack();
     // Start a new round
     setTimeout(choices, 1000);
@@ -175,24 +174,25 @@ happinessScore -= 50;
   } else if ($(this).text() === happinessButton.text()) {
     // Remove all the buttons
     $('.guess').remove();
+    // hapiness up, profit down
     happinessScore += 100;
     profitScore -= 50;
+// update the score
     scoreTrack();
     // Start a new round
     setTimeout(choices, 1000);
-
   }
 }
 
 
 
-
+// random array to use on buttons
 function getRandomElement(array) {
   let element = array[Math.floor(Math.random() * array.length)];
   return element;
-
 }
 
+// Phrases for when player says "I don't want to do this anymore" and count how many times it was said
 function doNotLeave() {
 
   if (letMeOut === 0) {
@@ -203,16 +203,12 @@ function doNotLeave() {
     responsiveVoice.speak(playerName + ". I want you to stay and make money.  I need you " + playerName, voice, voiceParameters);
   } else if (letMeOut === 2) {
     responsiveVoice.speak("I am hurt " + playerName + ".  Fine then. Go.  I will find someone else who is willing to help me.  I want you to leave now " + playerName, voice, voiceParameters);
-
   }
-
-
 }
 
+// keeps track of score and displays it on page
 function scoreTrack(){
 
   $('.messageDisplay').text(profitScore);
   $('.messageDisplay2').text(happinessScore);
-
-
 }
