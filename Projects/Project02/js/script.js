@@ -24,12 +24,19 @@ let happinessScore = 0;
 let profitContent = ["Killing Peppa Pig", "Abuse", "Suicide Forest"];
 let happinessContent = ["Kittens", "Peppa Pig", ];
 
+
+
+
 let buttons = [];
 
 const PROFIT_OPTIONS = 1;
 const HAPPINESS_OPTIONS = 1;
 
 let playerName =  "frank";     //prompt ("Please enter your name");
+
+let profitButton;
+let happinessButton;
+
 
 
 let letMeOut = 0;
@@ -53,6 +60,12 @@ let voiceParameters = {
 var commands = {
     "Let's start": function() {
     startPlaying();
+    gameState = true;
+
+
+
+
+
     }
   };
   annyang.addCommands(commands);
@@ -111,11 +124,12 @@ choices();
 function choices(){
 
 
+
 buttons = [];
 
 for (let i = 0; i < PROFIT_OPTIONS; i++) {
 
-let answer = getRandomElement(happinessContent);
+let answer = getRandomElement(profitContent);
 let $button = buttonShow(answer);
    // Add this button to the buttons array
    buttons.push($button);
@@ -128,6 +142,9 @@ let $button = buttonShow(answer);
    // Add this button to the buttons array
    buttons.push($button);
 }
+
+profitButton = getRandomElement(buttons);
+happinessButton = getRandomElement(buttons);
 
 
 }
@@ -160,17 +177,17 @@ function buttonShow(label){
 
 function handleButtonChoice(){
 
-  if ($(this).text() === profitContent.text()) {
+  if ($(this).text() === profitButton.text()) {
     // Remove all the buttons
-    $('.guess').remove();
+    $(".guess").remove();
     // Start a new round
-    choices(newRound, 1000);
+    setTimeout(choices, 1000);
   }
-  else  if ($(this).text() === happinessContent.text()) {
+  else  if ($(this).text() === happinessButton.text()) {
     // Remove all the buttons
     $('.guess').remove();
     // Start a new round
-    choices(newRound, 1000);
+    setTimeout(choices, 1000);
   }
 
 
