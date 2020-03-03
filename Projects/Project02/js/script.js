@@ -10,8 +10,6 @@ to match your project! Write JavaScript to do amazing things below!
 
 *********************************************************************/
 
-let gameState = false;
-
 
 
 let profitScore = 0;
@@ -59,18 +57,13 @@ let voiceParameters = {
 
 var commands = {
     "Let's start": function() {
-    startPlaying();
-    gameState = true;
-
-
-
-
+        startPlaying();
 
     }
   };
   annyang.addCommands(commands);
   //start listening
-  annyang.start();
+  annyang.start({ autoRestart: false, continuous: false });
 
 
 
