@@ -3,16 +3,43 @@
     background-color: transparent;
      width: 200px;
      height: 200px;
-     float: left;
      margin: 20px;
      text-align: center;
+
 }
 
 
 .messageDisplay{
 position: static;
 
+}
 
+#start{
+
+
+  height:50px;
+      width:100px;
+      margin: -20px -50px;
+      position:relative;
+      top:50%;
+      left:50%;
+
+
+}
+
+.mainScreen{
+
+margin-left: auto;
+margin-right: auto;
+display: flex;
+justify-content: center;
+
+
+}
+
+.guess{
+
+justify-content: center;
 
 
 

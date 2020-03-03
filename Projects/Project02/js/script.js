@@ -19,7 +19,7 @@ let happinessScore = 0;
 
 
 
-let profitContent = ["Killing Peppa Pig", "Abuse", "Suicide Forest" ];
+let profitContent = ["Killing Peppa Pig", "Abuse", "Suicide Forest", "Compilation of Random Videos" ];
 let happinessContent = ["Kittens", "Peppa Pig", "Disney", "Baking"];
 
 
@@ -167,7 +167,7 @@ function handleButtonChoice() {
   if ($(this).text() === profitButton.text()) {
     // Remove all the buttons
     $(".guess").remove();
-
+profitScore += 100;
     scoreTrack();
     // Start a new round
     setTimeout(choices, 1000);
