@@ -20,12 +20,13 @@ let happinessScore = 0;
 
 
 let profitContent = ["Killing Peppa Pig", "Abuse", "Suicide Forest", "Compilation of Random Videos" ];
-let happinessContent = ["Kittens", "Peppa Pig", "Disney", "Baking"];
+let happinessContent = ["Kittens", "Peppa Pig", "Disney", "Baking", "Elsa"];
 
 
 
 
 let buttons = [];
+let buttons2 = [];
 
 const PROFIT_OPTIONS = 1;
 const HAPPINESS_OPTIONS = 1;
@@ -124,16 +125,18 @@ function choices() {
     buttons.push($button);
   }
 
+  buttons2 = [];
+
   for (let i = 0; i < HAPPINESS_OPTIONS; i++) {
 
     let answer = getRandomElement(happinessContent);
     let $button = buttonShow(answer);
     // Add this button to the buttons array
-    buttons.push($button);
+    buttons2.push($button);
   }
 
   profitButton = getRandomElement(buttons);
-  happinessButton = getRandomElement(buttons);
+  happinessButton = getRandomElement(buttons2);
 
 
 }
@@ -175,10 +178,11 @@ profitScore += 100;
   } else if ($(this).text() === happinessButton.text()) {
     // Remove all the buttons
     $('.guess').remove();
-    happinessScore += 100;
+    happinessScore = happinessScore + 100;
     scoreTrack();
     // Start a new round
     setTimeout(choices, 1000);
+    console.log("fire");
   }
 
 console.log(happinessScore);
@@ -213,7 +217,7 @@ function doNotLeave() {
 function scoreTrack(){
 
   $('.messageDisplay').text(profitScore);
-  $('.messageDisplay').text(happinessScore);
+  $('.messageDisplay2').text(happinessScore);
 
 
 }
