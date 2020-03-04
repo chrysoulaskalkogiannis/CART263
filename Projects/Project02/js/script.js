@@ -81,6 +81,8 @@ $(document).ready(setup);
 function setup() {
 // hides the main screen when the page is loaded
   $('.mainScreen').hide();
+// hides restart button
+  $('#restart').hide();
 // Keeps track of our score
   scoreTrack();
 
@@ -166,21 +168,24 @@ function handleButtonChoice() {
     // profit up, happiness down
 profitScore += 100;
 happinessScore -= 50;
+moneyPhrase();
 // updates the score on page
     scoreTrack();
     // Start a new round
-    setTimeout(choices, 1000);
+    setTimeout(choices);
 
   } else if ($(this).text() === happinessButton.text()) {
     // Remove all the buttons
     $('.guess').remove();
     // hapiness up, profit down
+
     happinessScore += 50;
     profitScore -= 50;
+    moneyPhrase();
 // update the score
     scoreTrack();
     // Start a new round
-    setTimeout(choices, 1000);
+    setTimeout(choices);
   }
 }
 
@@ -203,18 +208,54 @@ function doNotLeave() {
     responsiveVoice.speak(playerName + ". I want you to stay and make money.  I need you " + playerName, voice, voiceParameters);
   } else if (letMeOut === 2) {
     responsiveVoice.speak("I am hurt " + playerName + ".  Fine then. Go.  I will find someone else who is willing to help me.  I want you to leave now " + playerName, voice, voiceParameters);
+    $('.mainScreen').hide();
+  // hides restart button
+    $('#restart').show();
+
+    $(".guess").remove();
+
+
   }
 }
 
 
-function progressPhrase(){
+function moneyPhrase(){
+
+if (profitScore === 1000 ){
+
+responsiveVoice.speak("I love the sound of upset children. Don't you "+ playerName+ ".  You did well making money. Don't worry about the children watching, they don't matter to me.", voice, voiceParameters);
+$('.mainScreen').hide();
+// hides restart button
+$('#restart').show();
+
+$button.remove();
 
 
 
 
 
+} else if (profitScore === 500) {
+  responsiveVoice.speak("You are doing great "+ playerName + ". Please continue", voice, voiceParameters);
+}else if (profitScore === 100) {
+  responsiveVoice.speak("Money is such a joy, right" + playerName, voice, voiceParameters);
+}else if (profitScore === 50) {
+responsiveVoice.speak(playerName +",We're loosing money", voice, voiceParameters);
+}else if (happinessScore === 500) {
+  responsiveVoice.speak("I see children are happy.  But what about the profit " + playerName, voice, voiceParameters);
+}else if (happinessScore === 700) {
+  responsiveVoice.speak("If happiness is that high then we must not be getting profit.", voice, voiceParameters);
+
+}else if (happinessScore === 1000) {
+  responsiveVoice.speak(playerName + " Something is not right.  Are you sure you're making us money?", voice, voiceParameters);
+} else if (profitScore === 700) {
+  responsiveVoice.speak("This is exactly what I wanted.  No one cares about happy things, only money. And that's what I want", voice, voiceParameters);
 
 }
+
+}
+
+
+
 
 // keeps track of score and displays it on page
 function scoreTrack(){

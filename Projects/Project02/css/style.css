@@ -27,6 +27,19 @@ position: static;
 
 }
 
+#restart{
+
+
+      height:50px;
+      width:100px;
+      margin: -20px -50px;
+      position:relative;
+      top:50%;
+      left:50%;
+
+
+}
+
 .mainScreen{
 
 margin-left: auto;
