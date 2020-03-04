@@ -16,7 +16,7 @@ let profitScore = 0;
 let happinessScore = 0;
 
 // an array of content for what gives profit and for what gives happiness
-let profitContent = ["Killing Peppa Pig", "Abuse", "Suicide Forest", "Compilation of Random Videos","Child crying", "Dark nursery rhyme", "Eerie faces", "Knives", "Flying Heads", "A character tied up", "Pony with no eyes", "Over detailed 3D model", "Tasering Mulan", "Shaved ponies", "Rat soup", "Vomit", "Blood", "Bruised princesses", "Defecation", "Scary clowns", "Scary dentists", "Poison","Pregnant"];
+let profitContent = ["Killing Peppa Pig", "Abuse", "Suicide Forest", "Compilation of Random Videos", "Child crying", "Dark nursery rhyme", "Eerie faces", "Knives", "Flying Heads", "A character tied up", "Pony with no eyes", "Over detailed 3D model", "Tasering Mulan", "Shaved ponies", "Rat soup", "Vomit", "Blood", "Bruised princesses", "Defecation", "Scary clowns", "Scary dentists", "Poison", "Pregnant"];
 let happinessContent = ["Kittens", "Peppa Pig", "Disney", "Baking", "Elsa", "Cool science", "Songs", "Thomas the Tank Engine", "My Little Pony", "Barbie", "Alphabet song", "Puppies", "Ice cream", "Nature", "Spongebob", "Fairly odd Parents", "Rainbows", "Nap songs", "Toys", "Dolls", "Chandy", "Mickey Mouse", "Minions", "Spider Man", "Goofy", "Tom and Jerry", "Stars", "Lion King", "Minecraft", "Kermit the Frog"];
 
 // an array of buttons to display on screen
@@ -28,7 +28,7 @@ const PROFIT_OPTIONS = 1;
 const HAPPINESS_OPTIONS = 1;
 
 // Asks for player name when loading page
-let playerName = prompt ("Please enter your name");
+let playerName = prompt("Please enter your name");
 
 //Keep track of what is a profit or happiness button
 let profitButton;
@@ -79,19 +79,19 @@ annyang.start();
 $(document).ready(setup);
 
 function setup() {
-// hides the main screen when the page is loaded
+  // hides the main screen when the page is loaded
   $('.mainScreen').hide();
-// hides restart button
+  // hides restart button
   $('#restart').hide();
-// Keeps track of our score
+  // Keeps track of our score
   scoreTrack();
 
-// when the start utton from out HTML is clicked, playing the starting phrase and shows the main screen
+  // when the start utton from out HTML is clicked, playing the starting phrase and shows the main screen
   $("#start").on("click", function() {
     $(this).hide(startPhrase());
     $('.mainScreen').show();
 
-// gives user the ability to say "Let's start"
+    // gives user the ability to say "Let's start"
     annyang.addCommands(commands);
   });
 };
@@ -105,7 +105,7 @@ function startPhrase() {
 function startPlaying() {
   responsiveVoice.speak("Good. Now," + playerName + "which piece of content will give us more profit?", voice, voiceParameters)
 
-// shows user buttons to schoose between profit or happiness
+  // shows user buttons to schoose between profit or happiness
   choices();
 }
 
@@ -113,10 +113,10 @@ function startPlaying() {
 function choices() {
 
   buttons = [];
-// a loop for only 1 profit button at a time
+  // a loop for only 1 profit button at a time
   for (let i = 0; i < PROFIT_OPTIONS; i++) {
 
-// user answer comes from what is in our profit array
+    // user answer comes from what is in our profit array
     let answer = getRandomElement(profitContent);
     // shows the array content on the button
     let $button = buttonShow(answer);
@@ -125,9 +125,9 @@ function choices() {
   }
 
   buttons2 = [];
-// a loop for only 1 happiness button at a time
+  // a loop for only 1 happiness button at a time
   for (let i = 0; i < HAPPINESS_OPTIONS; i++) {
-//  user answer comes from what is in our happiness array
+    //  user answer comes from what is in our happiness array
     let answer = getRandomElement(happinessContent);
     // shows the array content on the button
     let $button = buttonShow(answer);
@@ -135,7 +135,7 @@ function choices() {
     buttons2.push($button);
   }
 
-// call our profit and happiness butttons from he content on the buttons
+  // call our profit and happiness butttons from he content on the buttons
   profitButton = getRandomElement(buttons);
   happinessButton = getRandomElement(buttons2);
 }
@@ -166,10 +166,10 @@ function handleButtonChoice() {
     // Remove all the buttons
     $(".guess").remove();
     // profit up, happiness down
-profitScore += 100;
-happinessScore -= 50;
-moneyPhrase();
-// updates the score on page
+    profitScore += 100;
+    happinessScore -= 50;
+    moneyPhrase();
+    // updates the score on page
     scoreTrack();
     // Start a new round
     setTimeout(choices);
@@ -182,7 +182,7 @@ moneyPhrase();
     happinessScore += 50;
     profitScore -= 50;
     moneyPhrase();
-// update the score
+    // update the score
     scoreTrack();
     // Start a new round
     setTimeout(choices);
@@ -209,9 +209,9 @@ function doNotLeave() {
   } else if (letMeOut === 2) {
     responsiveVoice.speak("I am hurt " + playerName + ".  Fine then. Go.  I will find someone else who is willing to help me.  I want you to leave now " + playerName, voice, voiceParameters);
     $('.mainScreen').hide();
-  // hides restart button
+    // hides restart button
     $('#restart').show();
-
+    //
     $(".guess").remove();
 
 
@@ -219,46 +219,41 @@ function doNotLeave() {
 }
 
 
-function moneyPhrase(){
+//phrases when scores are at a certain number
+function moneyPhrase() {
 
-if (profitScore === 1000 ){
+  // winning phrase
+  if (profitScore === 1000) {
+    responsiveVoice.speak("I love the sound of upset children. Don't you " + playerName + ".  You did well making money. Don't worry about the children watching, they don't matter to me.", voice, voiceParameters);
+    $('.mainScreen').hide();
+    // hides restart button
+    $('#restart').show();
+    // removes all buttons
+    $button.remove();
 
-responsiveVoice.speak("I love the sound of upset children. Don't you "+ playerName+ ".  You did well making money. Don't worry about the children watching, they don't matter to me.", voice, voiceParameters);
-$('.mainScreen').hide();
-// hides restart button
-$('#restart').show();
+  } else if (profitScore === 500) {
+    responsiveVoice.speak("You are doing great " + playerName + ". Please continue", voice, voiceParameters);
+  } else if (profitScore === 100) {
+    responsiveVoice.speak("Money is such a joy, right" + playerName, voice, voiceParameters);
+  } else if (profitScore === 50) {
+    responsiveVoice.speak(playerName + ",We're loosing money", voice, voiceParameters);
+  } else if (happinessScore === 500) {
+    responsiveVoice.speak("I see children are happy.  But what about the profit " + playerName, voice, voiceParameters);
+  } else if (happinessScore === 700) {
+    responsiveVoice.speak("If happiness is that high then we must not be getting profit.", voice, voiceParameters);
 
-$button.remove();
+  } else if (happinessScore === 1000) {
+    responsiveVoice.speak(playerName + " Something is not right.  Are you sure you're making us money?", voice, voiceParameters);
+  } else if (profitScore === 700) {
+    responsiveVoice.speak("This is exactly what I wanted.  No one cares about happy things, only money. And that's what I want", voice, voiceParameters);
 
-
-
-
-
-} else if (profitScore === 500) {
-  responsiveVoice.speak("You are doing great "+ playerName + ". Please continue", voice, voiceParameters);
-}else if (profitScore === 100) {
-  responsiveVoice.speak("Money is such a joy, right" + playerName, voice, voiceParameters);
-}else if (profitScore === 50) {
-responsiveVoice.speak(playerName +",We're loosing money", voice, voiceParameters);
-}else if (happinessScore === 500) {
-  responsiveVoice.speak("I see children are happy.  But what about the profit " + playerName, voice, voiceParameters);
-}else if (happinessScore === 700) {
-  responsiveVoice.speak("If happiness is that high then we must not be getting profit.", voice, voiceParameters);
-
-}else if (happinessScore === 1000) {
-  responsiveVoice.speak(playerName + " Something is not right.  Are you sure you're making us money?", voice, voiceParameters);
-} else if (profitScore === 700) {
-  responsiveVoice.speak("This is exactly what I wanted.  No one cares about happy things, only money. And that's what I want", voice, voiceParameters);
-
-}
+  }
 
 }
-
-
 
 
 // keeps track of score and displays it on page
-function scoreTrack(){
+function scoreTrack() {
 
   $('.messageDisplay').text(profitScore);
   $('.messageDisplay2').text(happinessScore);
