@@ -46,16 +46,44 @@ function gotData(data) {
     verb = 'are';
   }
 
-  // Now the cat
-  let cat = getRandomElement(data.cats);
+    // Now the cat
+    let cat = getRandomElement(data.cats);
+
+  let articleCat = 'a';
+
+  if (cat.charAt(0) === 'A'||cat.charAt(0) === 'E'||cat.charAt(0) === 'I'||cat.charAt(0) === 'O'){
+
+    articleCat = 'an';
+
+  }
+let flower = getRandomElement(data.flowers);
+
+let articleFlower = 'a';
+
+if (flower.charAt(0) === 'a'||flower.charAt(0) === 'e'||flower.charAt(0) === 'e'||flower.charAt(0) === 'o'){
+
+  articleFlower = 'an';
+}
+
+let room = getRandomElement(data.rooms);
+
+let articleRoom = 'a';
+
+if (room.charAt(0) === 'a'||room.charAt(0) === 'e'||room.charAt(0) === 'e'||room.charAt(0) === 'o'){
+
+  articleRoom = 'an';
+}
 
   // Same again for room
-  let room = getRandomElement(data.rooms);
+
+
+
+  let movie = getRandomElement(data.movies);
 
   // Now we can construct our description with a template string
   // We have the basic structure of a sentence and we substitute in the
   // values we've just calculated
-  let description = `${condiment} ${verb} like a ${cat} in a ${room}.`;
+  let description = `${condiment} ${verb} like ${articleCat} ${cat} with ${articleFlower} ${flower} in ${articleRoom} ${room} watching ${movie}.`;
 
   // Finally, we add it to the page and hey presto!
   $('body').append(description)
