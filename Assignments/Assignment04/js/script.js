@@ -48,36 +48,32 @@ function gotData(data) {
 
   // Now the cat
   let cat = getRandomElement(data.cats);
-
+// 'a' cat and 'an' when cat name starts with a vowel
   let articleCat = 'a';
-
   if (cat.charAt(0) === 'A' || cat.charAt(0) === 'E' || cat.charAt(0) === 'I' || cat.charAt(0) === 'O') {
-
     articleCat = 'an';
 
   }
+
+   // now the flower
   let flower = getRandomElement(data.flowers);
-
+// 'a' flowe and 'an' when flower name starts with a vowel
   let articleFlower = 'a';
-
   if (flower.charAt(0) === 'a' || flower.charAt(0) === 'e' || flower.charAt(0) === 'e' || flower.charAt(0) === 'o') {
-
     articleFlower = 'an';
+
   }
 
+// now the room
   let room = getRandomElement(data.rooms);
-
+// 'a' room and 'an' when room name starts with a vowel
   let articleRoom = 'a';
-
   if (room.charAt(0) === 'a' || room.charAt(0) === 'e' || room.charAt(0) === 'e' || room.charAt(0) === 'o') {
-
     articleRoom = 'an';
+
   }
 
-  // Same again for room
-
-
-
+// now the movie names
   let movie = getRandomElement(data.movies);
 
   // Now we can construct our description with a template string
@@ -88,7 +84,7 @@ function gotData(data) {
   // Finally, we add it to the page and hey presto!
   $('body').append(description)
 
-
+// when the page is clicked on it calls handleClick
    $('html').on('click', handleClick);
 }
 
@@ -107,6 +103,8 @@ function getRandomElement(array) {
   return array[Math.floor(Math.random() * array.length)];
 }
 
+
+// reloads the page
 function handleClick() {
  location.reload(true);
 }
