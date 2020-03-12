@@ -46,33 +46,33 @@ function gotData(data) {
     verb = 'are';
   }
 
-    // Now the cat
-    let cat = getRandomElement(data.cats);
+  // Now the cat
+  let cat = getRandomElement(data.cats);
 
   let articleCat = 'a';
 
-  if (cat.charAt(0) === 'A'||cat.charAt(0) === 'E'||cat.charAt(0) === 'I'||cat.charAt(0) === 'O'){
+  if (cat.charAt(0) === 'A' || cat.charAt(0) === 'E' || cat.charAt(0) === 'I' || cat.charAt(0) === 'O') {
 
     articleCat = 'an';
 
   }
-let flower = getRandomElement(data.flowers);
+  let flower = getRandomElement(data.flowers);
 
-let articleFlower = 'a';
+  let articleFlower = 'a';
 
-if (flower.charAt(0) === 'a'||flower.charAt(0) === 'e'||flower.charAt(0) === 'e'||flower.charAt(0) === 'o'){
+  if (flower.charAt(0) === 'a' || flower.charAt(0) === 'e' || flower.charAt(0) === 'e' || flower.charAt(0) === 'o') {
 
-  articleFlower = 'an';
-}
+    articleFlower = 'an';
+  }
 
-let room = getRandomElement(data.rooms);
+  let room = getRandomElement(data.rooms);
 
-let articleRoom = 'a';
+  let articleRoom = 'a';
 
-if (room.charAt(0) === 'a'||room.charAt(0) === 'e'||room.charAt(0) === 'e'||room.charAt(0) === 'o'){
+  if (room.charAt(0) === 'a' || room.charAt(0) === 'e' || room.charAt(0) === 'e' || room.charAt(0) === 'o') {
 
-  articleRoom = 'an';
-}
+    articleRoom = 'an';
+  }
 
   // Same again for room
 
@@ -87,6 +87,9 @@ if (room.charAt(0) === 'a'||room.charAt(0) === 'e'||room.charAt(0) === 'e'||room
 
   // Finally, we add it to the page and hey presto!
   $('body').append(description)
+
+
+   $('html').on('click', handleClick);
 }
 
 // dataError()
@@ -102,4 +105,8 @@ function dataError(request, text, error) {
 // Returns a random element from the array provided
 function getRandomElement(array) {
   return array[Math.floor(Math.random() * array.length)];
+}
+
+function handleClick() {
+ location.reload(true);
 }
