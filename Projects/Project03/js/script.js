@@ -12,6 +12,7 @@ to match your project! Write JavaScript to do amazing things below!
 let playerName = prompt("Please enter your name");
 
 let robotVoice;
+let robotName;
 
 
 
@@ -32,6 +33,7 @@ console.log(playerName);
 
     if($('#maria').data('clicked')) {
         robotVoice = 'UK English Female';
+        robotName = 'Maria';
         startPhrase();
     }
   });
@@ -46,6 +48,7 @@ console.log(playerName);
 
     if($('#roy').data('clicked')) {
         robotVoice = 'UK English Male';
+        robotName = 'Roy';
         startPhrase();
         }
 
@@ -56,5 +59,5 @@ console.log(playerName);
 
 
 function startPhrase() {
-  responsiveVoice.speak("Hello " + playerName + "hello", robotVoice)
+  responsiveVoice.speak("Hello " + playerName + ". My name is " + robotName, robotVoice)
 }
