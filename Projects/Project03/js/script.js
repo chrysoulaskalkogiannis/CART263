@@ -27,8 +27,7 @@ console.log(playerName);
 
   $("#maria").on("click", function() {
      $(this).data('clicked', true);
-    $('#maria').hide();
-    $('#roy').hide();
+  
     console.log('maria');
 
     if($('#maria').data('clicked')) {
@@ -41,8 +40,7 @@ console.log(playerName);
 
   $("#roy").on("click", function() {
      $(this).data('clicked', true);
-    $('#roy').hide();
-    $('#maria').hide();
+
     console.log('roy');
 
 
@@ -59,5 +57,6 @@ console.log(playerName);
 
 
 function startPhrase() {
-  responsiveVoice.speak("Hello " + playerName + ". My name is " + robotName, robotVoice)
+  $('.container').hide();
+  responsiveVoice.speak("Hello " + playerName + ". My name is " + robotName + ". It's very nice to meet you.", robotVoice)
 }
