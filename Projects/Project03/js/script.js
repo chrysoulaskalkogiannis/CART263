@@ -15,17 +15,46 @@ let robotVoice;
 
 
 
-
-
 $(document).ready(setup);
 
 function setup() {
 
 console.log(playerName);
 
+
+
+
+  $("#maria").on("click", function() {
+     $(this).data('clicked', true);
+    $('#maria').hide();
+    $('#roy').hide();
+    console.log('maria');
+
+    if($('#maria').data('clicked')) {
+        robotVoice = 'UK English Female';
+        startPhrase();
+    }
+  });
+
+
+  $("#roy").on("click", function() {
+     $(this).data('clicked', true);
+    $('#roy').hide();
+    $('#maria').hide();
+    console.log('roy');
+
+
+    if($('#roy').data('clicked')) {
+        robotVoice = 'UK English Male';
+        startPhrase();
+        }
+
+  });
+
+
 };
 
 
 function startPhrase() {
-  responsiveVoice.speak("Hello " + playerName)
+  responsiveVoice.speak("Hello " + playerName + "hello", robotVoice)
 }
