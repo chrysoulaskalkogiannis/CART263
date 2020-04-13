@@ -20,15 +20,10 @@ $(document).ready(setup);
 
 function setup() {
 
-console.log(playerName);
-
-
-
-
   $("#maria").on("click", function() {
      $(this).data('clicked', true);
-  
     console.log('maria');
+
 
     if($('#maria').data('clicked')) {
         robotVoice = 'UK English Female';
@@ -41,18 +36,13 @@ console.log(playerName);
   $("#roy").on("click", function() {
      $(this).data('clicked', true);
 
-    console.log('roy');
-
 
     if($('#roy').data('clicked')) {
         robotVoice = 'UK English Male';
         robotName = 'Roy';
         startPhrase();
         }
-
   });
-
-
 };
 
 
