@@ -14,15 +14,20 @@ let playerName = prompt("Please enter your name");
 let robotVoice;
 let robotName;
 
-
+//{onend: startPhrase}
 
 $(document).ready(setup);
 
 function setup() {
 
+$('#introResponse').hide();
+
+
+
+
   $("#maria").on("click", function() {
      $(this).data('clicked', true);
-    console.log('maria');
+
 
 
     if($('#maria').data('clicked')) {
@@ -48,5 +53,22 @@ function setup() {
 
 function startPhrase() {
   $('.container').hide();
-  responsiveVoice.speak("Hello " + playerName + ". My name is " + robotName + ". It's very nice to meet you.", robotVoice)
+  responsiveVoice.speak("Hello " + playerName + ". My name is " + robotName + ". It's very nice to meet you.", robotVoice, {onend: introResponse})
+
+}
+
+
+
+
+function introResponse(){
+
+$('#introResponse').show();
+
+// What is it like being an AI
+// Are you A human?
+// I don't want to be here
+
+
+
+
 }

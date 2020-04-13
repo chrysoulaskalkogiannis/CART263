@@ -1,7 +1,3 @@
-.start{
-
-  text-align: center;
-}
 
 
 
@@ -18,5 +14,10 @@
 }
 
 .container{
+    text-align: center;
+}
+
+
+#introResponse{
     text-align: center;
 }
