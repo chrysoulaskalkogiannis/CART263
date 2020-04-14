@@ -65,8 +65,8 @@ $('#introResponse').hide();
 
 function startPhrase() {
   $('.container').hide();
-  responsiveVoice.speak("Hello " + playerName + ". My name is " + robotName + ". It's very nice to meet you.", robotVoice, introResponse())
-
+  responsiveVoice.speak("Hello " + playerName + ". My name is " + robotName + ". It's very nice to meet you.", robotVoice)
+introResponse()
 }
 
 
@@ -74,8 +74,9 @@ function startPhrase() {
 
 function introResponse(){
 
-$('#introResponse').show();
 annyang.addCommands(commands);
+$('#introResponse').show();
+
 
 
 }
