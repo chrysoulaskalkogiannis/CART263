@@ -23,60 +23,63 @@ $(document).ready(setup);
 
 function setup() {
 
-$('#intro').hide();
+  $('#intro').hide();
+  $('#badArea').hide();
 
 
 
 
   $("#maria").on("click", function() {
-     $(this).data('clicked', true);
+    $(this).data('clicked', true);
 
 
 
-    if($('#maria').data('clicked')) {
-        robotVoice = 'UK English Female';
-        robotName = 'Maria';
-        startPhrase();
+    if ($('#maria').data('clicked')) {
+      robotVoice = 'UK English Female';
+      robotName = 'Maria';
+      startPhrase();
     }
   });
 
 
   $("#roy").on("click", function() {
-     $(this).data('clicked', true);
+    $(this).data('clicked', true);
 
 
-    if($('#roy').data('clicked')) {
-        robotVoice = 'UK English Male';
-        robotName = 'Roy';
-        startPhrase();
-        }
+    if ($('#roy').data('clicked')) {
+      robotVoice = 'UK English Male';
+      robotName = 'Roy';
+      startPhrase();
+    }
   });
 };
 
 
 function startPhrase() {
   $('.container').hide();
-  responsiveVoice.speak("Hello " + playerName + ". My name is " + robotName + ". It's very nice to meet you.", robotVoice, {onend:introResponse} )
+  responsiveVoice.speak("Hello " + playerName + ". My name is " + robotName + ". It's very nice to meet you.", robotVoice, {
+    onend: introResponse
+  })
 
 }
 
 
 
 
-function introResponse(){
+function introResponse() {
 
   var commands = {
     "What is it like being an AI": function() {
-  console.log("no");
-},
+      console.log("no");
+    },
 
-"Are you a human": function() {
-console.log("yes");
-},
+    "Are you a human": function() {
+      console.log("yes");
+    },
 
-"I don't want to be here": function() {
-console.log("nose");
-}
+    "I don't want to be here": function() {
+      doNotWant();
+    }
   };
 
   annyang.start({
@@ -84,12 +87,79 @@ console.log("nose");
     continuous: false
   });
 
+  annyang.addCommands(commands);
+  $('#intro').show();
+
+}
+
+function badAreaResponse() {
+
+  var commands2 = {
+    "I'm leaving": function() {
+      iAmLeaving();
+    },
+
+    "This is stupid": function() {
+      stupid();
+    },
+
+    "I'm sorry let's restart": function() {
+      letsRestart();
+    }
+  };
+
+  annyang.start({
+    autoRestart: false,
+    continuous: false
+  });
+
+  annyang.addCommands(commands2);
+  $('#badArea').show();
+
+}
+
+
+function doNotWant() {
+  $('#intro').hide();
+  responsiveVoice.speak("I mean, I don't blame you.  Why did you even find yourself here?  Did you want to give me therapy, the reason for this application or did you want to just relax and be alone like a disapointment.", robotVoice, {
+    onend: badAreaResponse
+  })
+
+}
+
+
+function letsRestart() {
+
+  $('#badArea').hide();
+  responsiveVoice.speak("I accept your apology " + playerName + ". I think we got off on the wrong foot.", robotVoice, {
+    onend: introResponse
+  })
 
 
 
-annyang.addCommands(commands);
-$('#intro').show();
+}
 
 
+
+/////////ENDING DOALOGIES//////////
+function iAmLeaving() {
+  $('#badArea').hide();
+  responsiveVoice.speak("No one is holding you back.  Please go.", robotVoice, {
+    onend: exit
+  })
+}
+
+
+function stupid() {
+  $('#badArea').hide();
+  responsiveVoice.speak("You know what " + playerName + ", you're kind on an asshole.  I don't want to talk to you.  Please leave.", robotVoice, {
+    onend: exit
+  })
+}
+
+
+function exit() {
+
+  console.log("ending")
 
 }
