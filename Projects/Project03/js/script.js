@@ -14,7 +14,19 @@ let playerName = prompt("Please enter your name");
 let robotVoice;
 let robotName;
 
-//{onend: startPhrase}
+
+var commands = {
+  "Do you like being an AI": function() {
+console.log("no");
+}
+};
+
+annyang.start({
+  autoRestart: false,
+  continuous: false
+});
+
+
 
 $(document).ready(setup);
 
@@ -53,7 +65,7 @@ $('#introResponse').hide();
 
 function startPhrase() {
   $('.container').hide();
-  responsiveVoice.speak("Hello " + playerName + ". My name is " + robotName + ". It's very nice to meet you.", robotVoice, {onend: introResponse})
+  responsiveVoice.speak("Hello " + playerName + ". My name is " + robotName + ". It's very nice to meet you.", robotVoice, introResponse())
 
 }
 
@@ -63,12 +75,7 @@ function startPhrase() {
 function introResponse(){
 
 $('#introResponse').show();
-
-// What is it like being an AI
-// Are you A human?
-// I don't want to be here
-
-
+annyang.addCommands(commands);
 
 
 }
