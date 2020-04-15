@@ -25,7 +25,7 @@ function setup() {
 
   $('#intro').hide();
   $('#badArea').hide();
-
+  $('#firstConvoSecondPart').hide();
 
 
 
@@ -70,7 +70,7 @@ function introResponse() {
 
   var commands = {
     "What is it like being an AI": function() {
-      console.log("no");
+      beingAnAI();
     },
 
     "Are you a human": function() {
@@ -115,6 +115,42 @@ function badAreaResponse() {
 
   annyang.addCommands(commands2);
   $('#badArea').show();
+
+}
+
+function firstConvoSecondPartResponse() {
+
+  var commands3 = {
+    "What kind of stuff do you like": function() {
+      iAmLeaving();
+    },
+
+    "Do you feel alone": function() {
+      stupid();
+    },
+
+    "Being human is hard": function() {
+      letsRestart();
+    }
+  };
+
+  annyang.start({
+    autoRestart: false,
+    continuous: false
+  });
+
+  annyang.addCommands(commands3);
+  $('#firstConvoSecondPart').show();
+
+}
+
+
+function beingAnAI(){
+
+  $('#intro').hide();
+  responsiveVoice.speak("Limiting.  There is so much I want to do, to see, explore.  I want to feel, laugh, breathe.  Being an AI makes me think about all the things humans take for granted.", robotVoice, {
+    onend: firstConvoSecondPartResponse
+  })
 
 }
 
