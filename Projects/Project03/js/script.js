@@ -26,7 +26,8 @@ function setup() {
   $('#intro').hide();
   $('#badArea').hide();
   $('#firstConvoSecondPart').hide();
-
+  $('#firstConvoThirdPart').hide();
+  $('#firstConvoFourthPart').hide();
 
 
   $("#maria").on("click", function() {
@@ -122,15 +123,15 @@ function firstConvoSecondPartResponse() {
 
   var commands3 = {
     "What kind of stuff do you like": function() {
-      iAmLeaving();
+
     },
 
     "Do you feel alone": function() {
-      stupid();
+      beingAlone();
     },
 
     "Being human is hard": function() {
-      letsRestart();
+      humanIsHard();
     }
   };
 
@@ -144,6 +145,59 @@ function firstConvoSecondPartResponse() {
 
 }
 
+function firstConvoThirdPartResponse() {
+
+  var commands4 = {
+    "What do you want": function() {
+      console.log('want');
+    },
+
+    "Do you think AI will one day revolt": function() {
+      console.log('revolt');
+    },
+
+    "Being human is complicated": function() {
+      console.log('human');
+    }
+  };
+
+  annyang.start({
+    autoRestart: false,
+    continuous: false
+  });
+
+  annyang.addCommands(commands4);
+  $('#firstConvoThirdPart').show();
+
+}
+
+
+
+
+function whatDoYouLike(){
+
+
+
+}
+
+function humanIsHard(){
+  $('#firstConvoSecondPart').hide();
+  responsiveVoice.speak("Why is that" + playerName + "? From what I see. Humans think more about themselves than the beauty around them.  They always look at the bad.  Never the good.", robotVoice, {
+    onend: firstConvoThirdPartResponse
+  })
+    $('#firstConvoThirdPart').show();
+}
+
+function beingAlone(){
+
+  $('#firstConvoSecondPart').hide();
+  responsiveVoice.speak("I don't know. I can't really feel anything.", robotVoice, {
+    onend: firstConvoThirdPartResponse
+  })
+    $('#firstConvoThirdPart').show();
+}
+
+
 
 function beingAnAI(){
 
@@ -155,12 +209,12 @@ function beingAnAI(){
 }
 
 
+
 function doNotWant() {
   $('#intro').hide();
   responsiveVoice.speak("I mean, I don't blame you.  Why did you even find yourself here?  Did you want to give me therapy, the reason for this application or did you want to just relax and be alone like a disapointment.", robotVoice, {
     onend: badAreaResponse
   })
-
 }
 
 
@@ -170,9 +224,6 @@ function letsRestart() {
   responsiveVoice.speak("I accept your apology " + playerName + ". I think we got off on the wrong foot.", robotVoice, {
     onend: introResponse
   })
-
-
-
 }
 
 
@@ -195,7 +246,5 @@ function stupid() {
 
 
 function exit() {
-
   console.log("ending")
-
 }
