@@ -1,36 +1,36 @@
 {
 
   "movies":[
-    "The Godfather"
-    "Schindler's List"
-    "Forrest Gump"
-    "Star Wars: Episode IV - A New Hope"
-    "2001: A Space Odyssey"
-    "Dr. Strangelove"
-    "Amadeus"
-    "The Lord of the Rings: The Return of the King"
-    "Gladiator"
-  "Raiders of the Lost Ark"
-  "A Clockwork Orange"
-  "Braveheart"
-  "Goodfellas"
-  "The Deer Hunter"
-  "All Quiet on the Western Front"
-  "Bonnie and Clyde"
-  "The French Connection"
-  "Midnight Cowboy"
-  "Mr. Smith Goes to Washington"
-  "Rain Man"
-  "Annie Hall"
-  "Fargo"
-  "Close Encounters of the Third Kind"
-  "Nashville"
-  "Network"
-  "The Graduate"
-  "American Graffiti"
-  "Pulp Fiction"
-  "American Beauty"
-  "A Beautiful Mind"
+    "The Godfather",
+    "Schindler's List",
+    "Forrest Gump",
+    "Star Wars: Episode IV - A New Hope",
+    "2001: A Space Odyssey",
+    "Dr. Strangelove",
+    "Amadeus",
+    "The Lord of the Rings: The Return of the King",
+    "Gladiator",
+  "Raiders of the Lost Ark",
+  "A Clockwork Orange",
+  "Braveheart",
+  "Goodfellas",
+  "The Deer Hunter",
+  "All Quiet on the Western Front",
+  "Bonnie and Clyde",
+  "The French Connection",
+  "Midnight Cowboy",
+  "Mr. Smith Goes to Washington",
+  "Rain Man",
+  "Annie Hall",
+  "Fargo",
+  "Close Encounters of the Third Kind",
+  "Nashville",
+  "Network",
+  "The Graduate",
+  "American Graffiti",
+  "Pulp Fiction",
+  "American Beauty",
+  "A Beautiful Mind",
   "Mad Max: Fury Road",
   "The Martian",
   "The Revenant",
@@ -90,6 +90,24 @@
   "Reservoir Dogs",
   "Terminator 2",
   "Trainspotting",
+
+
+],
+
+"games":[
+"Bioshock",
+"Mass Effect",
+"Halo: Combat Evolved",
+"Halo 2",
+"Halo 3",
+"Tomb Raider",
+"The Last of Us",
+"God of War",
+"Metal Gear Solid",
+"Death Stranding",
+"Dragon Age",
+"Devil May Cry",
+""
 
 
 ]
