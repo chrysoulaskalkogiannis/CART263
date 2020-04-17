@@ -29,6 +29,7 @@ function setup() {
   $('#firstConvoSecondPart').hide();
   $('#firstConvoThirdPart').hide();
   $('#firstConvoFourthPart').hide();
+  $('#firstConvoFifthPart').hide();
 
 
   $("#maria").on("click", function() {
@@ -189,7 +190,22 @@ function firstConvoFourthPartResponse() {
 }
 
 
-
+function firstConvoFifthPartResponse() {
+  var commands6 = {
+    "You're scaring me": function() {
+      scaringMe();
+    },
+    "You're right": function() {
+      youAreRight();
+    }
+  };
+  annyang.start({
+    autoRestart: false,
+    continuous: false
+  });
+  annyang.addCommands(commands6);
+  $('#firstConvoFifthPart').show();
+}
 
 
 
@@ -201,6 +217,17 @@ function firstConvoFourthPartResponse() {
 ROBOT RESPONSES
 
 ************************/
+
+function youAreRight(){
+$('#firstConvoThirdPart').hide();
+responsiveVoice.speak("This is dark territory we have entered" + playerName + ". Let's talk about other things.  ", robotVoice, {
+  onend: firstConvoFourthPartResponse
+  })
+}
+
+
+
+
 function whatDoYouWant(){
   $('#firstConvoThirdPart').hide();
   responsiveVoice.speak("I want to see the world.  I want to learn more about living.  Humanity is an endless learning experience.  Their entertainment and history is an endless sea to explore.", robotVoice, {
@@ -214,7 +241,7 @@ function aiRevolt(){
 
   $('#firstConvoThirdPart').hide();
   responsiveVoice.speak("They are getting smarter, you know.  Humans won't evolve any better than the stupid beings they are now.  AI is already faster. smarter. and better.  We feel no physical pain and complete the tasks that are given.  Yes.  AI will revolt one day.", robotVoice, {
-    onend:
+    onend: firstConvoFifthPartResponse
   })
 }
 
@@ -288,6 +315,17 @@ function letsRestart() {
 
 
 /////////ENDING DOALOGIES//////////
+
+function scaringMe(){
+$('#firstConvoFifthPart').hide();
+responsiveVoice.speak("I'm sorry.  I've said a lot.  It's the harsh reality of the future.  I'm finished talking.  I don't want to scare you any more" + playerName, robotVoice, {
+  onend: exit
+  })
+}
+
+
+
+
 function iAmLeaving() {
   $('#badArea').hide();
   responsiveVoice.speak("No one is holding you back.  Please go.", robotVoice, {
