@@ -21,11 +21,183 @@ let robotName;
 
 
 
+let movies = ["The Godfather",
+"Schindler's List",
+"Forrest Gump",
+"Star Wars: Episode IV - A New Hope",
+"2001: A Space Odyssey",
+"Dr. Strangelove",
+"Amadeus",
+"The Lord of the Rings: The Return of the King",
+"Gladiator",
+"Raiders of the Lost Ark",
+"A Clockwork Orange",
+"Braveheart",
+"Goodfellas",
+"Pulp Fiction",
+"American Beauty",
+"A Beautiful Mind",
+"Mad Max: Fury Road",
+"The Martian",
+"The Revenant",
+"Arrival",
+"Hidden Figures",
+"La La Land",
+"Manchester by the Sea",
+"Call Me by Your Name",
+"Darkest Hour",
+"Dunkirk",
+"Get Out",
+"Lady Bird",
+"Phantom Thread",
+"The Post",
+"Three Billboards Outside Ebbing, Missouri",
+"Chocolat",
+"Crouching Tiger, Hidden Dragon",
+"Erin Brockovich",
+"Traffic",
+"The Lord of the Rings: The Fellowship of the Ring",
+"The Lord of the Rings: The Two Towers",
+"Inglourious Basterds",
+"Up",
+"Blade Runner",
+"The Shining",
+"Full Metal Jacket",
+"Top Gun",
+"The Outsiders",
+"Uncle Buck",
+"Stand by Me",
+"Star Wars: Episode VI - Return of the Jedi",
+"Star Wars: Episode V - The Empire Strikes Back",
+"Ferris Bueller's Day Off",
+"The Terminator",
+"Indiana Jones and the Last Crusade",
+"Airplane!",
+"Fast Times at Ridgemont High",
+"Indiana Jones and the Temple of Doom",
+"The NeverEnding Story",
+"The Shawshank Redemption",
+"The Silence of the Lambs",
+"The Lion King",
+"Titanic",
+"The Green Mile",
+"Jurassic Park",
+"Saving Private Ryan",
+"The Fifth Element",
+"The Big Lebowski",
+"Beauty and the Beast",
+"The Godfather: Part III",
+"Toy Story",
+"The Usual Suspects",
+"Good Will Hunting",
+"Star Wars: Episode I - The Phantom Menace",
+"The Mummy",
+"Clueless",
+"Reservoir Dogs",
+"Terminator 2",
+"Trainspotting"];
+
+let countries = ["Afghanistan",
+"Argentina",
+"Armenia",
+"Australia",
+"Austria",
+"Azerbaijan",
+"Bahamas",
+"Bahrain",
+"Bangladesh",
+"Barbados",
+"Belarus",
+"Belgium",
+"Brazil",
+"Brunei",
+"Bulgaria",
+"Burkina",
+"Burundi",
+"Cambodia",
+"Canada",
+"Cyprus",
+"Czech Republic",
+"Denmark",
+"Ecuador",
+"Egypt",
+"Fiji",
+"Finland",
+"France",
+"Germany",
+"Greece",
+"Hungary",
+"Iceland",
+"India",
+"Ireland",
+"Israel",
+"Italy",
+"Ivory Coast",
+"Jamaica",
+"Japan",
+"Korea",
+"Liberia",
+"Libya",
+"Liechtenstein",
+"Lithuania",
+"Luxembourg",
+"Macedonia",
+"Mexico",
+"Micronesia",
+"Moldova",
+"Monaco",
+"Mongolia",
+"Montenegro",
+"Morocco",
+"Mozambique",
+"Myanmar",
+"Netherlands",
+"New Zealand",
+"Norway",
+"Philippines",
+"Poland",
+"Romania",
+"Rwanda",
+"Saudi Arabia",
+"Spain",
+"Swaziland",
+"Sweden",
+"Switzerland",
+"Syria",
+"Taiwan",
+"Tajikistan",
+"Tanzania",
+"Thailand",
+"Ukraine",
+"United Arab Emirates",
+"United Kingdom",
+"United States",
+"Vatican City"];
+
+let games = ["Bioshock",
+"Mass Effect",
+"Halo: Combat Evolved",
+"Halo 2",
+"Halo 3",
+"Tomb Raider",
+"The Last of Us",
+"God of War",
+"Metal Gear Solid",
+"Death Stranding",
+"Dragon Age",
+"Devil May Cry"];
+
+
+
 // ready to start
 $(document).ready(setup);
 
 function setup() {
 
+
+  let favoriteGame = getRandomElement(games);
+  let favoriteMovie = getRandomElement(movies);
+  let favoriteCountry = getRandomElement(countries);
 
 // hide all the player dialogie choices
 $('#intro').hide();
@@ -59,6 +231,9 @@ $('#firstConvoFifthPart').hide();
       startPhrase();
     }
   });
+
+
+
 };
 
 
@@ -364,4 +539,11 @@ function stupid() {
 
 function exit() {
   console.log("ending")
+}
+
+
+function getRandomElement(array) {
+  let element = array[Math.floor(Math.random() * array.length)];
+  return element;
+
 }
