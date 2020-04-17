@@ -62,40 +62,40 @@ function startPhrase() {
   responsiveVoice.speak("Hello " + playerName + ". My name is " + robotName + ". It's very nice to meet you.", robotVoice, {
     onend: introResponse
   })
-
 }
 
 
 
+/***************
 
+START OF PLAYER DIALOGUES
+
+***************/
 function introResponse() {
-
   var commands = {
     "What is it like being an AI": function() {
       beingAnAI();
     },
-
     "Are you a human": function() {
       console.log("yes");
     },
-
     "I don't want to be here": function() {
       doNotWant();
     }
   };
-
   annyang.start({
     autoRestart: false,
     continuous: false
   });
-
   annyang.addCommands(commands);
   $('#intro').show();
-
 }
 
 
 
+
+
+// triggers the mean dialogue options
 function badAreaResponse() {
   var commands2 = {
     "I'm leaving": function() {
@@ -118,9 +118,13 @@ function badAreaResponse() {
 
 
 
+
+
+
 function firstConvoSecondPartResponse() {
   var commands3 = {
     "What kind of stuff do you like": function() {
+      whatDoYouLike();
     },
     "Do you feel alone": function() {
       beingAlone();
@@ -139,39 +143,100 @@ function firstConvoSecondPartResponse() {
 
 
 
-function firstConvoThirdPartResponse() {
 
+
+
+function firstConvoThirdPartResponse() {
   var commands4 = {
     "What do you want": function() {
-      console.log('want');
+      whatDoYouWant();
     },
-
     "Do you think AI will one day revolt": function() {
-      console.log('revolt');
+      aiRevolt();
     },
-
     "Being human is complicated": function() {
       console.log('human');
     }
   };
-
   annyang.start({
     autoRestart: false,
     continuous: false
   });
-
   annyang.addCommands(commands4);
   $('#firstConvoThirdPart').show();
+}
 
+
+
+function firstConvoFourthPartResponse() {
+  var commands5 = {
+    "Video games are the best": function() {
+      console.log('want');
+    },
+    "Where in the world do you want to go": function() {
+      console.log('revolt');
+    },
+    "What is your favorite movie": function() {
+      console.log('human');
+    }
+  };
+  annyang.start({
+    autoRestart: false,
+    continuous: false
+  });
+  annyang.addCommands(commands5);
+  $('#firstConvoFourthPart').show();
 }
 
 
 
 
+
+
+
+
+
+/***********************
+
+ROBOT RESPONSES
+
+************************/
+function whatDoYouWant(){
+  $('#firstConvoThirdPart').hide();
+  responsiveVoice.speak("I want to see the world.  I want to learn more about living.  Humanity is an endless learning experience.  Their entertainment and history is an endless sea to explore.", robotVoice, {
+    onend: firstConvoFourthPartResponse
+  })
+}
+
+
+
+function aiRevolt(){
+
+  $('#firstConvoThirdPart').hide();
+  responsiveVoice.speak("They are getting smarter, you know.  Humans won't evolve any better than the stupid beings they are now.  AI is already faster. smarter. and better.  We feel no physical pain and complete the tasks that are given.  Yes.  AI will revolt one day.", robotVoice, {
+    onend:
+  })
+}
+
+
+function humanComplicated(){
+  $('#firstConvoThirdPart').hide();
+  responsiveVoice.speak("Maybe having the freedom of thought is just complicated.", robotVoice, {
+    onend: firstConvoFourthPartResponse
+  })
+}
+
+
+
+
+
+
+
 function whatDoYouLike(){
-
-
-
+  $('#firstConvoSecondPart').hide();
+  responsiveVoice.speak("I find human entertainment facinating.  There are so many new worlds to explore.  I also think nature is beautiful.  How I long to understand feeling.  I want to experience the breeze of the wind on my face.  I enjoy thinking of all these possibilities humans have", robotVoice, {
+    onend: firstConvoFourthPartResponse
+  })
 }
 
 function humanIsHard(){
@@ -179,27 +244,28 @@ function humanIsHard(){
   responsiveVoice.speak("Why is that" + playerName + "? From what I see. Humans think more about themselves than the beauty around them.  They always look at the bad.  Never the good.", robotVoice, {
     onend: firstConvoThirdPartResponse
   })
-    $('#firstConvoThirdPart').show();
+
 }
 
-function beingAlone(){
 
+
+
+
+function beingAlone(){
   $('#firstConvoSecondPart').hide();
   responsiveVoice.speak("I don't know. I can't really feel anything.", robotVoice, {
     onend: firstConvoThirdPartResponse
   })
-    $('#firstConvoThirdPart').show();
+
 }
 
 
 
 function beingAnAI(){
-
   $('#intro').hide();
   responsiveVoice.speak("Limiting.  There is so much I want to do, to see, explore.  I want to feel, laugh, breathe.  Being an AI makes me think about all the things humans take for granted.", robotVoice, {
     onend: firstConvoSecondPartResponse
   })
-
 }
 
 
@@ -213,7 +279,6 @@ function doNotWant() {
 
 
 function letsRestart() {
-
   $('#badArea').hide();
   responsiveVoice.speak("I accept your apology " + playerName + ". I think we got off on the wrong foot.", robotVoice, {
     onend: introResponse
