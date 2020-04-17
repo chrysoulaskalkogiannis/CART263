@@ -9,20 +9,21 @@ This is a template. Fill in the title, author, and this description
 to match your project! Write JavaScript to do amazing things below!
 
 *********************************************************************/
+
+// player writes their name and are called that name in the program
 let playerName = prompt("Please enter your name");
 
+// the name of the robot and it's voice depending on which one you choose.
 let robotVoice;
 let robotName;
 
 
-
-
-
-
+// ready to start
 $(document).ready(setup);
 
 function setup() {
 
+// hide all the player dialogie choices
   $('#intro').hide();
   $('#badArea').hide();
   $('#firstConvoSecondPart').hide();
@@ -93,57 +94,50 @@ function introResponse() {
 
 }
 
-function badAreaResponse() {
 
+
+function badAreaResponse() {
   var commands2 = {
     "I'm leaving": function() {
       iAmLeaving();
     },
-
     "This is stupid": function() {
       stupid();
     },
-
     "I'm sorry let's restart": function() {
       letsRestart();
     }
   };
-
   annyang.start({
     autoRestart: false,
     continuous: false
   });
-
   annyang.addCommands(commands2);
   $('#badArea').show();
-
 }
 
-function firstConvoSecondPartResponse() {
 
+
+function firstConvoSecondPartResponse() {
   var commands3 = {
     "What kind of stuff do you like": function() {
-
     },
-
     "Do you feel alone": function() {
       beingAlone();
     },
-
     "Being human is hard": function() {
       humanIsHard();
     }
   };
-
   annyang.start({
     autoRestart: false,
     continuous: false
   });
-
   annyang.addCommands(commands3);
   $('#firstConvoSecondPart').show();
-
 }
+
+
 
 function firstConvoThirdPartResponse() {
 
