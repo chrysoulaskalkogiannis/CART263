@@ -19,17 +19,53 @@ let robotName;
 
 
 // ready to start
-$(document).ready(setup);
+$(document).ready(function(){
+
+
+
+  $.getJSON('data/data.json')
+    .done(gotData)
+    .fail(dataError);
+});
+
+
+function dataError(request, text, error) {
+  console.error(error);
+}
+
+
+
+function gotData(data) {
+
+  let film = getRandomElement(data.movies);
+
+  let game = getRandomElement(data.games);
+
+  let country = getRandomElement(data.countries);
+
+let finalGame = `${game}`;
+let finalFilm = `${film}`;
+let finalCountry = `${country}`;
+
+  setup();
+
+  }
+
+
 
 function setup() {
 
+
+
+
+
 // hide all the player dialogie choices
-  $('#intro').hide();
-  $('#badArea').hide();
-  $('#firstConvoSecondPart').hide();
-  $('#firstConvoThirdPart').hide();
-  $('#firstConvoFourthPart').hide();
-  $('#firstConvoFifthPart').hide();
+$('#intro').hide();
+$('#badArea').hide();
+$('#firstConvoSecondPart').hide();
+$('#firstConvoThirdPart').hide();
+$('#firstConvoFourthPart').hide();
+$('#firstConvoFifthPart').hide();
 
 
   $("#maria").on("click", function() {
@@ -121,7 +157,7 @@ function badAreaResponse() {
 
 
 
-
+//DONE
 function firstConvoSecondPartResponse() {
   var commands3 = {
     "What kind of stuff do you like": function() {
@@ -146,7 +182,7 @@ function firstConvoSecondPartResponse() {
 
 
 
-
+//DONE
 function firstConvoThirdPartResponse() {
   var commands4 = {
     "What do you want": function() {
@@ -156,7 +192,7 @@ function firstConvoThirdPartResponse() {
       aiRevolt();
     },
     "Being human is complicated": function() {
-      console.log('human');
+      humanComplicated();
     }
   };
   annyang.start({
@@ -168,26 +204,6 @@ function firstConvoThirdPartResponse() {
 }
 
 
-
-function firstConvoFourthPartResponse() {
-  var commands5 = {
-    "Video games are the best": function() {
-      console.log('want');
-    },
-    "Where in the world do you want to go": function() {
-      console.log('revolt');
-    },
-    "What is your favorite movie": function() {
-      console.log('human');
-    }
-  };
-  annyang.start({
-    autoRestart: false,
-    continuous: false
-  });
-  annyang.addCommands(commands5);
-  $('#firstConvoFourthPart').show();
-}
 
 
 function firstConvoFifthPartResponse() {
@@ -210,6 +226,32 @@ function firstConvoFifthPartResponse() {
 
 
 
+function firstConvoFourthPartResponse() {
+  var commands5 = {
+    "Video games are the best": function() {
+      bestVideoGames();
+    },
+    "Where in the world do you want to go": function() {
+      console.log('revolt');
+    },
+    "What is your favorite movie": function() {
+      console.log('human');
+    }
+  };
+  annyang.start({
+    autoRestart: false,
+    continuous: false
+  });
+  annyang.addCommands(commands5);
+  $('#firstConvoFourthPart').show();
+}
+
+
+
+
+
+
+
 
 
 /***********************
@@ -217,6 +259,16 @@ function firstConvoFifthPartResponse() {
 ROBOT RESPONSES
 
 ************************/
+function bestVideoGames(){
+////working on
+  $('#firstConvoFourthPart').hide();
+  responsiveVoice.speak("This is dark territory we have entered" + playerName + ". Let's talk about other things.  ", robotVoice, {
+    onend: firstConvoFourthPartResponse
+    })
+}
+
+
+
 
 function youAreRight(){
 $('#firstConvoThirdPart').hide();
@@ -344,4 +396,9 @@ function stupid() {
 
 function exit() {
   console.log("ending")
+}
+
+
+function getRandomElement(array) {
+  return array[Math.floor(Math.random() * array.length)];
 }
