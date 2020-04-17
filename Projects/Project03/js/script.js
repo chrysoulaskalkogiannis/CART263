@@ -18,45 +18,13 @@ let robotVoice;
 let robotName;
 
 
+
+
+
 // ready to start
-$(document).ready(function(){
-
-
-
-  $.getJSON('data/data.json')
-    .done(gotData)
-    .fail(dataError);
-});
-
-
-function dataError(request, text, error) {
-  console.error(error);
-}
-
-
-
-function gotData(data) {
-
-  let film = getRandomElement(data.movies);
-
-  let game = getRandomElement(data.games);
-
-  let country = getRandomElement(data.countries);
-
-let finalGame = `${game}`;
-let finalFilm = `${film}`;
-let finalCountry = `${country}`;
-
-  setup();
-
-  }
-
-
+$(document).ready(setup);
 
 function setup() {
-
-
-
 
 
 // hide all the player dialogie choices
@@ -396,9 +364,4 @@ function stupid() {
 
 function exit() {
   console.log("ending")
-}
-
-
-function getRandomElement(array) {
-  return array[Math.floor(Math.random() * array.length)];
 }
