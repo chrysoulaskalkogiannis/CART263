@@ -209,6 +209,9 @@ $('#firstConvoThirdPart').hide();
 $('#firstConvoFourthPart').hide();
 $('#firstConvoFifthPart').hide();
 $('#firstConvoSixthPart').hide();
+$('#firstConvoSeventhPart').hide();
+$('#firstConvoEighthPart').hide();
+
 
   $("#maria").on("click", function() {
     $(this).data('clicked', true);
@@ -395,13 +398,13 @@ function firstConvoFourthPartResponse() {
 function firstConvoSixthPartResponse() {
   var commands7 = {
     "You'd like it there": function() {
-      console.log('memes');
+    happyQuestion();
     },
     "I've been there": function() {
-    console.log('memes');
+    happyQuestion();
     },
     "I don't want to go there": function() {
-    console.log('memes');
+    doNotWantToGo();
     }
   };
   annyang.start({
@@ -413,6 +416,25 @@ function firstConvoSixthPartResponse() {
 }
 
 
+function firstConvoSeventhPartResponse() {
+  var commands7 = {
+    "My family": function() {
+      console.log('memes');
+    },
+    "My friends": function() {
+    console.log('memes');
+    },
+    "Doing the things I love": function() {
+    console.log('memes');
+    }
+  };
+  annyang.start({
+    autoRestart: false,
+    continuous: false
+  });
+  annyang.addCommands(commands7);
+  $('#firstConvoSeventhPart').show();
+}
 
 
 
@@ -421,6 +443,33 @@ function firstConvoSixthPartResponse() {
 ROBOT RESPONSES
 
 ************************/
+
+
+function happyResponse(){
+  $('#firstConvoSeventhPart').hide();
+  responsiveVoice.speak("You're a nice person.  Very positive and caring.  What are your impressions of me", robotVoice, {
+    onend:
+    })
+
+
+
+}
+
+
+
+
+function happyQuestion(){
+  $('#firstConvoSixthPart').hide();
+  responsiveVoice.speak("What makes you happy" + playerName, robotVoice, {
+    onend: firstConvoSeventhPartResponse
+    })
+}
+
+
+
+
+
+
 function bestMovie(){
   $('#firstConvoFourthPart').hide();
   responsiveVoice.speak("I love" + favoriteMovie + ". Films have evolved so much in the past 100 years.  Even video games like" + favoriteGame + " are movies in their own ways.  I can't play games physically but i'm gratefull I can watch and learn from them.", robotVoice, {
@@ -546,6 +595,19 @@ function letsRestart() {
 
 
 /////////ENDING DOALOGIES//////////
+
+
+function doNotWantToGo() {
+  $('#firstConvoSixthPart').hide();
+  responsiveVoice.speak("Are you always this negative" + playerName + "? I don't want to talk with you if you're going to be like this.  Just go.", robotVoice, {
+    onend: exit
+  })
+}
+
+
+
+
+
 
 function scaringMe(){
 $('#firstConvoFifthPart').hide();
