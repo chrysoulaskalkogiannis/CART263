@@ -448,7 +448,7 @@ ROBOT RESPONSES
 function happyResponse(){
   $('#firstConvoSeventhPart').hide();
   responsiveVoice.speak("You're a nice person.  Very positive and caring.  What are your impressions of me", robotVoice, {
-    onend:
+    onend:firstConvoSeventhPartResponse
     })
 
 
