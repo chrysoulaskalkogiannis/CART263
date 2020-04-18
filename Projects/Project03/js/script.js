@@ -196,7 +196,6 @@ $(document).ready(setup);
 
 function setup() {
 
-
   favoriteGame = getRandomElement(games);
   favoriteMovie = getRandomElement(movies);
   favoriteCountry = getRandomElement(countries);
@@ -213,7 +212,7 @@ $('#firstConvoSeventhPart').hide();
 $('#firstConvoEighthPart').hide();
 $('#firstConvoNinthPart').hide();
 $('#firstConvoTenthPart').hide();
-
+$('#exitContainer').hide();
 
   $("#maria").on("click", function() {
     $(this).data('clicked', true);
@@ -771,7 +770,10 @@ function stupid() {
 
 
 function exit() {
-  console.log("ending")
+  $('#exitContainer').show();
+  $("#restartButton").on( "click", function() {
+    location.reload(true);
+  });
 }
 
 

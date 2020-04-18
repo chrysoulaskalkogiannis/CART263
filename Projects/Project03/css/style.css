@@ -61,3 +61,15 @@
 #firstConvoTenthPart{
     text-align: center;
 }
+
+
+
+#exitContainer{
+    text-align: center;
+}
+
+
+#restartButton{
+  height:50px;
+  width:100px;
+}
