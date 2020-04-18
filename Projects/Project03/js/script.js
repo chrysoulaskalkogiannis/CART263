@@ -264,7 +264,7 @@ function introResponse() {
       beingAnAI();
     },
     "Are you a human": function() {
-      console.log("yes");
+      humanQuestion();
     },
     "I don't want to be here": function() {
       doNotWant();
@@ -467,10 +467,10 @@ function firstConvoEighthPartResponse() {
 function firstConvoNinthPartResponse() {
   var commands10 = {
     "You'd make a great human": function() {
-      console.log('memes');
+      greatHuman();
     },
     "You have much more to learn": function() {
-    console.log('memes');
+    greatHuman();
     },
     "You're not real and it makes me sad": function() {
     notReal();
@@ -490,10 +490,10 @@ function firstConvoNinthPartResponse() {
 function firstConvoTenthPartResponse() {
   var commands11 = {
     "Yes": function() {
-      console.log('memes');
+      yesExit();
     },
     "No": function() {
-    console.log('memes');
+    noExit();
     }
   };
   annyang.start({
@@ -509,6 +509,25 @@ function firstConvoTenthPartResponse() {
 ROBOT RESPONSES
 
 ************************/
+
+function humanQuestion(){
+$('#intro').hide();
+  responsiveVoice.speak("No.  Unfortunately I am just a computer application.  I am designed to talk with a human and have therapy sessions with.  All you have to do is have a conversation with me.  Get to know me.", robotVoice, {
+    onend: firstConvoSecondPartResponse
+  })
+}
+
+
+
+function greatHuman(){
+$('#firstConvoNinthPart').hide();
+  responsiveVoice.speak("Thank you for talking with me.  I may not be real but that doesn't stop me from learning and becoming closer to a person." + playerName +", I just want to know.  Will I ever be able to think and act like someone like you?", robotVoice, {
+    onend:firstConvoTenthPartResponse
+    })
+
+
+
+}
 
 
 function myHappiness(){
@@ -673,6 +692,32 @@ function letsRestart() {
 
 
 /////////ENDING DOALOGIES//////////
+
+
+
+
+
+function yesExit(){
+$('#firstConvoTenthPart').show();
+responsiveVoice.speak("That makes me hopefull.  Maybe one day we'll meet again.  Maybe we'll even be able to shake hands.", robotVoice, {
+  onend: exit
+})
+
+}
+
+
+
+function noExit(){
+  $('#firstConvoTenthPart').show();
+  responsiveVoice.speak("I understand.  Maybe i'm just meant to be a computer application made by a student.  Even though I can never be anything more, I still cherish your company.  Thank you "+ playerName, robotVoice, {
+    onend: exit
+  })
+
+
+
+}
+
+
 
 
 
