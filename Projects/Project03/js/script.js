@@ -419,22 +419,22 @@ function firstConvoSixthPartResponse() {
 
 
 function firstConvoSeventhPartResponse() {
-  var commands7 = {
+  var commands8 = {
     "My family": function() {
-      console.log('memes');
+      myHappiness();
     },
     "My friends": function() {
-    console.log('memes');
+      myHappiness();
     },
     "Doing the things I love": function() {
-    console.log('memes');
+      myHappiness();
     }
   };
   annyang.start({
     autoRestart: false,
     continuous: false
   });
-  annyang.addCommands(commands7);
+  annyang.addCommands(commands8);
   $('#firstConvoSeventhPart').show();
 }
 
@@ -442,22 +442,22 @@ function firstConvoSeventhPartResponse() {
 
 
 function firstConvoEighthPartResponse() {
-  var commands7 = {
+  var commands9 = {
     "I enjoy those titles too": function() {
-      console.log('memes');
+      enjoy();
     },
     "You have terrilble taste": function() {
-    console.log('memes');
+    stupid();
     },
     "Where in the world do you want to go": function() {
-    console.log('memes');
+    seeWorld();
     }
   };
   annyang.start({
     autoRestart: false,
     continuous: false
   });
-  annyang.addCommands(commands7);
+  annyang.addCommands(commands9);
   $('#firstConvoEighthPart').show();
 }
 
@@ -465,7 +465,7 @@ function firstConvoEighthPartResponse() {
 
 
 function firstConvoNinthPartResponse() {
-  var commands7 = {
+  var commands10 = {
     "You'd make a great human": function() {
       console.log('memes');
     },
@@ -473,14 +473,14 @@ function firstConvoNinthPartResponse() {
     console.log('memes');
     },
     "You're not real and it makes me sad": function() {
-    console.log('memes');
+    notReal();
     }
   };
   annyang.start({
     autoRestart: false,
     continuous: false
   });
-  annyang.addCommands(commands7);
+  annyang.addCommands(commands10);
   $('#firstConvoNinthPart').show();
 }
 
@@ -488,7 +488,7 @@ function firstConvoNinthPartResponse() {
 
 
 function firstConvoTenthPartResponse() {
-  var commands7 = {
+  var commands11 = {
     "Yes": function() {
       console.log('memes');
     },
@@ -500,7 +500,7 @@ function firstConvoTenthPartResponse() {
     autoRestart: false,
     continuous: false
   });
-  annyang.addCommands(commands7);
+  annyang.addCommands(commands11);
   $('#firstConvoTenthPart').show();
 }
 
@@ -511,14 +511,26 @@ ROBOT RESPONSES
 ************************/
 
 
+function myHappiness(){
+  $('#firstConvoSeventhPart').hide();
+  responsiveVoice.speak("Beautiful.  You're a nice person.  Very positive and caring.  What are your impressions of me", robotVoice, {
+    onend:firstConvoNinthPartResponse
+    })
+}
+
+
 function happyResponse(){
   $('#firstConvoSeventhPart').hide();
   responsiveVoice.speak("You're a nice person.  Very positive and caring.  What are your impressions of me", robotVoice, {
     onend:firstConvoNinthPartResponse
     })
+}
 
-
-
+function enjoy(){
+  $('#firstConvoSeventhPart').hide();
+  responsiveVoice.speak("I see we have a lot in common" + playerName + "What are your impressions of me?", robotVoice, {
+    onend:firstConvoNinthPartResponse
+    })
 }
 
 
@@ -663,6 +675,17 @@ function letsRestart() {
 /////////ENDING DOALOGIES//////////
 
 
+
+function notReal(){
+  $('#firstConvoNinthPart').hide();
+  responsiveVoice.speak("I might not be real" + playerName + ". But just know that you can always come back and talk with me.  It feels good to be able to talk with someone.  You are a very special person.  Goodbye"+ playerName, robotVoice, {
+    onend: exit
+  })
+
+
+}
+
+
 function doNotWantToGo() {
   $('#firstConvoSixthPart').hide();
   responsiveVoice.speak("Are you always this negative" + playerName + "? I don't want to talk with you if you're going to be like this.  Just go.", robotVoice, {
@@ -695,6 +718,7 @@ function iAmLeaving() {
 
 function stupid() {
   $('#badArea').hide();
+  $('#firstConvoEighthPart').hide();
   responsiveVoice.speak("You know what " + playerName + ", you're kind on an asshole.  I don't want to talk to you.  Please leave.", robotVoice, {
     onend: exit
   })
