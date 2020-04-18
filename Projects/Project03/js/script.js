@@ -211,6 +211,8 @@ $('#firstConvoFifthPart').hide();
 $('#firstConvoSixthPart').hide();
 $('#firstConvoSeventhPart').hide();
 $('#firstConvoEighthPart').hide();
+$('#firstConvoNinthPart').hide();
+$('#firstConvoTenthPart').hide();
 
 
   $("#maria").on("click", function() {
@@ -438,6 +440,70 @@ function firstConvoSeventhPartResponse() {
 
 
 
+
+function firstConvoEighthPartResponse() {
+  var commands7 = {
+    "I enjoy those titles too": function() {
+      console.log('memes');
+    },
+    "You have terrilble taste": function() {
+    console.log('memes');
+    },
+    "Where in the world do you want to go": function() {
+    console.log('memes');
+    }
+  };
+  annyang.start({
+    autoRestart: false,
+    continuous: false
+  });
+  annyang.addCommands(commands7);
+  $('#firstConvoEighthPart').show();
+}
+
+
+
+
+function firstConvoNinthPartResponse() {
+  var commands7 = {
+    "You'd make a great human": function() {
+      console.log('memes');
+    },
+    "You have much more to learn": function() {
+    console.log('memes');
+    },
+    "You're not real and it makes me sad": function() {
+    console.log('memes');
+    }
+  };
+  annyang.start({
+    autoRestart: false,
+    continuous: false
+  });
+  annyang.addCommands(commands7);
+  $('#firstConvoNinthPart').show();
+}
+
+
+
+
+function firstConvoTenthPartResponse() {
+  var commands7 = {
+    "Yes": function() {
+      console.log('memes');
+    },
+    "No": function() {
+    console.log('memes');
+    }
+  };
+  annyang.start({
+    autoRestart: false,
+    continuous: false
+  });
+  annyang.addCommands(commands7);
+  $('#firstConvoTenthPart').show();
+}
+
 /***********************
 
 ROBOT RESPONSES
@@ -448,7 +514,7 @@ ROBOT RESPONSES
 function happyResponse(){
   $('#firstConvoSeventhPart').hide();
   responsiveVoice.speak("You're a nice person.  Very positive and caring.  What are your impressions of me", robotVoice, {
-    onend:firstConvoSeventhPartResponse
+    onend:firstConvoNinthPartResponse
     })
 
 
