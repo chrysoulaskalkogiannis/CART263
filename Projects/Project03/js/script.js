@@ -17,7 +17,9 @@ let playerName = prompt("Please enter your name");
 let robotVoice;
 let robotName;
 
-
+let favoriteGame;
+let favoriteMovie;
+let favoriteCountry;
 
 
 
@@ -195,9 +197,9 @@ $(document).ready(setup);
 function setup() {
 
 
-  let favoriteGame = getRandomElement(games);
-  let favoriteMovie = getRandomElement(movies);
-  let favoriteCountry = getRandomElement(countries);
+  favoriteGame = getRandomElement(games);
+  favoriteMovie = getRandomElement(movies);
+  favoriteCountry = getRandomElement(countries);
 
 // hide all the player dialogie choices
 $('#intro').hide();
@@ -206,7 +208,7 @@ $('#firstConvoSecondPart').hide();
 $('#firstConvoThirdPart').hide();
 $('#firstConvoFourthPart').hide();
 $('#firstConvoFifthPart').hide();
-
+$('#firstConvoSixthPart').hide();
 
   $("#maria").on("click", function() {
     $(this).data('clicked', true);
@@ -375,10 +377,10 @@ function firstConvoFourthPartResponse() {
       bestVideoGames();
     },
     "Where in the world do you want to go": function() {
-      console.log('revolt');
+      seeWorld();
     },
     "What is your favorite movie": function() {
-      console.log('human');
+      bestMovie();
     }
   };
   annyang.start({
@@ -390,8 +392,25 @@ function firstConvoFourthPartResponse() {
 }
 
 
-
-
+function firstConvoSixthPartResponse() {
+  var commands7 = {
+    "You'd like it there": function() {
+      console.log('memes');
+    },
+    "I've been there": function() {
+    console.log('memes');
+    },
+    "I don't want to go there": function() {
+    console.log('memes');
+    }
+  };
+  annyang.start({
+    autoRestart: false,
+    continuous: false
+  });
+  annyang.addCommands(commands7);
+  $('#firstConvoSixthPart').show();
+}
 
 
 
@@ -402,10 +421,27 @@ function firstConvoFourthPartResponse() {
 ROBOT RESPONSES
 
 ************************/
+function bestMovie(){
+  $('#firstConvoFourthPart').hide();
+  responsiveVoice.speak("I love" + favoriteMovie + ". Films have evolved so much in the past 100 years.  Even video games like" + favoriteGame + " are movies in their own ways.  I can't play games physically but i'm gratefull I can watch and learn from them.", robotVoice, {
+    onend: firstConvoFourthPartResponse
+    })
+}
+
+
+function seeWorld(){
+  $('#firstConvoFourthPart').hide();
+  responsiveVoice.speak("I'd love to one day see" + favoriteCountry +". To actually be there would be a dream.  You have no idea how lucky you are to just pack your bags, purchase and ticket and go.", robotVoice, {
+    onend: firstConvoSixthPartResponse
+    })
+}
+
+
+
 function bestVideoGames(){
 ////working on
   $('#firstConvoFourthPart').hide();
-  responsiveVoice.speak("This is dark territory we have entered" + playerName + ". Let's talk about other things.  ", robotVoice, {
+  responsiveVoice.speak("They certainly are.  I'd have to say" + favoriteGame + " is my favorite. Not to mention films like" + favoriteMovie + " captures audiences.  There is not much I can do in this worls physically but watch different types of media.", robotVoice, {
     onend: firstConvoFourthPartResponse
     })
 }
