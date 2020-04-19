@@ -1,5 +1,8 @@
 
-
+@font-face {
+  font-family: matrix;
+  src: url(assets/fonts/binchr.ttf);
+}
 
 
 #maria{
@@ -15,57 +18,70 @@
 
 .container{
     text-align: center;
+    font-family: matrix;
 }
 
 
 #intro{
     text-align: center;
+    font-family: matrix;
 }
 
 #badArea{
     text-align: center;
+    font-family: matrix;
 }
 
 #firstConvoSecondPart{
     text-align: center;
+    font-family: matrix;
 }
 
 #firstConvoThirdPart{
     text-align: center;
+    font-family: matrix;
 }
 
 #firstConvoFourthPart{
     text-align: center;
+    font-family: matrix;
 }
 
 #firstConvoFifthPart{
     text-align: center;
+    font-family: matrix;
 }
 
 #firstConvoSixthPart{
     text-align: center;
+    font-family: matrix;
 }
 
 #firstConvoSeventhPart{
     text-align: center;
+    font-family: matrix;
 }
 
 #firstConvoEighthPart{
     text-align: center;
+    font-family: matrix;
 }
 
 #firstConvoNinthPart{
     text-align: center;
+    font-family: matrix;
 }
 
 #firstConvoTenthPart{
     text-align: center;
+    font-family: matrix;
 }
 
 
 
 #exitContainer{
     text-align: center;
+    font-family: matrix;
 }
 
 
