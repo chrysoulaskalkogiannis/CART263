@@ -4,6 +4,15 @@
   src: url(assets/fonts/binchr.ttf);
 }
 
+body{
+background-color: black;
+color: Green;
+font-size: 30px;
+
+
+
+}
+
 
 #maria{
       height:50px;
