@@ -17,6 +17,7 @@ let playerName = prompt("Please enter your name");
 let robotVoice;
 let robotName;
 
+// variables for the robots favorite things
 let favoriteGame;
 let favoriteMovie;
 let favoriteCountry;

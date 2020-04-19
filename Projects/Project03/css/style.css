@@ -8,9 +8,6 @@ body{
 background-color: black;
 color: Green;
 font-size: 30px;
-
-
-
 }
 
 
@@ -18,7 +15,6 @@ font-size: 30px;
       height:50px;
       width:100px;
 }
-
 
 #roy{
       height:50px;
@@ -29,6 +25,8 @@ font-size: 30px;
     text-align: center;
     font-family: matrix;
 }
+
+
 
 
 #intro{
