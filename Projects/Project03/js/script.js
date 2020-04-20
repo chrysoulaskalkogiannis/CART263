@@ -2,11 +2,11 @@
 
 /********************************************************************
 
-Title of Project
-Author Name
+AI Therapy
+Chrysoula Skalkogiannis
 
-This is a template. Fill in the title, author, and this description
-to match your project! Write JavaScript to do amazing things below!
+Have a conversation with an AI.  Ask Maria or Roy questions about
+their thoughts, aspirations.  They want to be human.  Make them feel like one.
 
 *********************************************************************/
 
@@ -260,7 +260,6 @@ function startPhrase() {
 }
 
 
-
 /***************
 
 START OF PLAYER DIALOGUES
@@ -369,6 +368,27 @@ function firstConvoThirdPartResponse() {
 }
 
 
+function firstConvoFourthPartResponse() {
+  var commands5 = {
+    "Video games are the best": function() {
+      bestVideoGames();
+    },
+    "Where in the world do you want to go": function() {
+      seeWorld();
+    },
+    "What movies do you like": function() {
+      bestMovie();
+    }
+  };
+  annyang.start({
+    autoRestart: false,
+    continuous: false
+  });
+  annyang.addCommands(commands5);
+  $('#firstConvoFourthPart').show();
+}
+
+
 function firstConvoFifthPartResponse() {
   var commands6 = {
     "You're scaring me": function() {
@@ -384,27 +404,6 @@ function firstConvoFifthPartResponse() {
   });
   annyang.addCommands(commands6);
   $('#firstConvoFifthPart').show();
-}
-
-
-function firstConvoFourthPartResponse() {
-  var commands5 = {
-    "Video games are the best": function() {
-      bestVideoGames();
-    },
-    "Where in the world do you want to go": function() {
-      seeWorld();
-    },
-    "What is your favorite movie": function() {
-      bestMovie();
-    }
-  };
-  annyang.start({
-    autoRestart: false,
-    continuous: false
-  });
-  annyang.addCommands(commands5);
-  $('#firstConvoFourthPart').show();
 }
 
 
@@ -576,16 +575,18 @@ function happyQuestion() {
 
 
 function bestMovie() {
+  console.log('movie');
   $('#firstConvoFourthPart').hide();
-  responsiveVoice.speak("I love" + favoriteMovie + ". Films have evolved so much in the past 100 years.  Even video games like" + favoriteGame + " are movies in their own ways.  I can't play games physically but i'm gratefull I can watch and learn from them.", robotVoice, {
-    onend: firstConvoFourthPartResponse
+  responsiveVoice.speak("I love " + favoriteMovie + ". Films have evolved so much in the past 100 years.  Even video games like" + favoriteGame + " are movies in their own ways.  I can't play games physically but i'm gratefull I can watch and learn from them.", robotVoice, {
+    onend: firstConvoEighthPartResponse
   })
 }
 
 
 function seeWorld() {
   $('#firstConvoFourthPart').hide();
-  responsiveVoice.speak("I'd love to one day see" + favoriteCountry + ". To actually be there would be a dream.  You have no idea how lucky you are to just pack your bags, purchase and ticket and go.", robotVoice, {
+  $('#firstConvoEighthPart').hide();
+  responsiveVoice.speak("I'd love to one day see " + favoriteCountry + ". To actually be there would be a dream.  You have no idea how lucky you are to just pack your bags, purchase and ticket and go.", robotVoice, {
     onend: firstConvoSixthPartResponse
   })
 }
@@ -593,15 +594,15 @@ function seeWorld() {
 
 function bestVideoGames() {
   $('#firstConvoFourthPart').hide();
-  responsiveVoice.speak("They certainly are.  I'd have to say" + favoriteGame + " is my favorite. Not to mention films like" + favoriteMovie + " captures audiences.  There is not much I can do in this worls physically but watch different types of media.", robotVoice, {
-    onend: firstConvoFourthPartResponse
+  responsiveVoice.speak("They certainly are.  I'd have to say " + favoriteGame + " is my favorite. Not to mention films like" + favoriteMovie + " captures audiences.  There is not much I can do in this worls physically but watch different types of media.", robotVoice, {
+    onend: firstConvoEighthPartResponse
   })
 }
 
 
 function youAreRight() {
   $('#firstConvoThirdPart').hide();
-  responsiveVoice.speak("This is dark territory we have entered" + playerName + ". Let's talk about other things.  ", robotVoice, {
+  responsiveVoice.speak("This is dark territory we have entered " + playerName + ". Let's talk about other things.  ", robotVoice, {
     onend: firstConvoFourthPartResponse
   })
 }
@@ -689,7 +690,7 @@ END OF ROBOT RESPONSES
 START OF ENDING DIALOGUES
 ************************/
 function yesExit() {
-  $('#firstConvoTenthPart').show();
+  $('#firstConvoTenthPart').hide();
   responsiveVoice.speak("That makes me hopefull.  Maybe one day we'll meet again.  Maybe we'll even be able to shake hands.", robotVoice, {
     onend: exit
   })
@@ -697,7 +698,7 @@ function yesExit() {
 
 
 function noExit() {
-  $('#firstConvoTenthPart').show();
+  $('#firstConvoTenthPart').hide();
   responsiveVoice.speak("I understand.  Maybe i'm just meant to be a computer application made by a student.  Even though I can never be anything more, I still cherish your company.  Thank you " + playerName, robotVoice, {
     onend: exit
   })

@@ -1,16 +1,22 @@
 
+
+/*  Get font file */
+
 @font-face {
   font-family: matrix;
-  src: url(assets/fonts/binchr.ttf);
+  src: url(assets/fonts/binxchr.ttf);
 }
 
+
+
+/*  Color of background and text */
 body{
 background-color: black;
 color: Green;
 font-size: 30px;
 }
 
-
+/*  Maria and Roy button display bigger and container to keep them in same UI */
 #maria{
       height:50px;
       width:100px;
@@ -28,7 +34,7 @@ font-size: 30px;
 
 
 
-
+/*  Following displays the UI centered and with proper typeface */
 #intro{
     text-align: center;
     font-family: matrix;
@@ -85,7 +91,7 @@ font-size: 30px;
 }
 
 
-
+/*  Keep exit UI in center */
 #exitContainer{
     text-align: center;
     font-family: matrix;
